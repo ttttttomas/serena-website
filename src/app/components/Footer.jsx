@@ -6,10 +6,6 @@ import Whatsapp from "./ui/icons/Whatsapp";
 import Instagram from "./ui/icons/Instagram";
 import Facebook from "./ui/icons/Facebook";
 
-
-
-
-
 export default function Footer() {
     return (
         <footer>
