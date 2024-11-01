@@ -9,6 +9,9 @@ const config: Config = {
   ],
   theme: {
   	extend: {
+  		fontFamily: {
+  			boomster: ['var(--font-boomster)']
+  		},
   		colors: {
   			orangeMedium: '#F36C17',
   			orangeLight: '#F68E41',
@@ -16,8 +19,13 @@ const config: Config = {
   			whiteBg: '#F9F9F9',
   			lightBlueBg: '#BDEDEB'
   		},
+  		borderRadius: {
+  			lg: 'var(--radius)',
+  			md: 'calc(var(--radius) - 2px)',
+  			sm: 'calc(var(--radius) - 4px)'
+  		}
   	}
   },
-  plugins: [],
+  plugins: [require("tailwindcss-animate")],
 };
 export default config;
