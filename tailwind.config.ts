@@ -17,7 +17,8 @@ const config: Config = {
   			orangeLight: '#F68E41',
   			creamBg: '#F7C8AA',
   			whiteBg: '#F9F9F9',
-  			lightBlueBg: '#BDEDEB'
+  			lightBlueBg: '#BDEDEB',
+			opinionBg: '#11CABF42'
   		},
   		borderRadius: {
   			lg: 'var(--radius)',

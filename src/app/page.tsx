@@ -1,6 +1,8 @@
 import BoxsHome from './components/ui/BoxsHome'
 import AsesoriaIcon from './components/ui/icons/Asesoria'
 import MedicIcon from './components/ui/icons/Medic'
+import OpinionExample from './components/ui/icons/OpinionExample'
+
 import Checked from './components/ui/icons/Checked'
 import Link from 'next/link';
 
@@ -68,13 +70,38 @@ export default function Home() {
         </div>
       </section>
     </section>
-    <section id="why-us" className="bg-creamBg pb-10 my-20 flex flex-col">
+    <section id="why-us" className="bg-creamBg pb-10 mt-20 mb-10 flex flex-col">
       <h2 className='text-center text-3xl py-5'>¿POR QUÉ ELEGIRNOS PARA TUS VACACIONES?</h2>
       <BoxsHome />
     </section>
     <section id="opinions">
-      <h4 className='text-3xl text-center'>ALGUNAS DE NUESTRAS RESEÑAS</h4>
-      <div className='h-96 bg-black'></div>
+      <h4 className='text-3xl text-center mb-20'>ALGUNAS DE NUESTRAS RESEÑAS</h4>
+        <ul className='flex justify-center text-center'>
+          <li className='relative p-20'>
+            <div className='absolute -top-7 left-[150px]'>
+            <OpinionExample />
+            </div>
+            <div className='flex justify-center items-center z-50 bg-opinionBg h-52 w-80'>
+              <p className='z-50 text-center px-10'>"bla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla bla"</p>
+            </div>
+          </li>
+          <li className='relative p-20'>
+            <div className='absolute -top-7 left-[150px]'>
+            <OpinionExample />
+            </div>
+            <div className='flex justify-center items-center z-50 bg-opinionBg h-52 w-80'>
+              <p className='z-50 text-center px-10'>"bla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla bla"</p>
+            </div>
+          </li>
+          <li className='relative p-20'>
+            <div className='absolute -top-7 left-[150px]'>
+            <OpinionExample />
+            </div>
+            <div className='flex justify-center items-center z-50 bg-opinionBg h-52 w-80'>
+              <p className='z-50 text-center px-10'>"bla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla bla"</p>
+            </div>
+          </li>
+        </ul>
     </section>
     </main>
     
