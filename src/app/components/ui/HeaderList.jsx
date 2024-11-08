@@ -27,8 +27,8 @@ export default function HeaderList() {
     }
 
     return (
-        <div className="hidden bg-orangeMedium py-3 md:flex">
-            <ul className="flex justify-around w-full font-semibold items-center text-lg text-white">
+        <div className="hidden bg-orangeMedium py-3 md:flex z-50">
+            <ul className="flex justify-around w-full font-semibold border-none items-center text-lg text-white">
                 <Link href='/' className="cursor-pointer">
                     Inicio
                 </Link>

@@ -2,7 +2,7 @@ import DateExample from '@components/ui/icons/DateExample'
 import Pagination from '@components/Pagination'
 export default function Nacionales() {
     return (
-        <main className=''>
+        <main>
              <img 
         src="https://s3-alpha-sig.figma.com/img/04b8/012b/4db82b2078bfe30a64638e71a620e724?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=YfY9xQuUvIwNitch7iLehkDNT4f34w32yrL--N2m~mJ2f7teZE8KDffu5HbVUnALF9D~gkTmKuysAjVIQRp7Ezta1kRdTHkjuvLLaKvlpOM1SArhDAUqbFJNvfdXOeD4STakER3j90kVUiqm7Q68upzgnzZLXL5pGSf74j6hKg6CWdpAjazmyXe3G9A3gmyl5Vzrd0dhQCa3HUYy-kASJxrhrBwCirGmg5mySXEc4uHrsEjMxLAjw4JnIOUVWiFMGJBJbTulXWSJ-IOlsNDxDMfR3Ghx3uookmdUwx7FdQ~b~Ptv4bpFtMhISisJNyJvySetQ0zeroHmjpz08I78Jg__"
         alt="background-section" 
