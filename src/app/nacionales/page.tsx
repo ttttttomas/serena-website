@@ -12,7 +12,7 @@ export default function Nacionales() {
             <h5 className="bg-opinionBg text-2xl py-1 w-full clip text-center mt-8 font-bold">
                 NUESTROS NACIONALES
             </h5>
-            <div className="container hover:shadow-orangeMedium transition-all flex p-3 gap-20 border my-5 shadow-md shadow-gray-400 pr-10">
+            <div className="container rounded-2xl cursor-pointer hover:scale-105 hover:shadow-orangeMedium transition-all flex p-3 gap-20 border my-5 shadow-md shadow-gray-400 pr-10">
                <div>
                 <img
                     className="rounded-2xl"

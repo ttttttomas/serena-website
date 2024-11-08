@@ -26,7 +26,13 @@ function AboutUs(){
                 </div>
             </section>
             <div className="my-20">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d410.1436698179777!2d-58.56454631707703!3d-34.67617970558415!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcc62e4022e425%3A0xf1440b1fec96f1f8!2sAv.%20Pres.%20Dr.%20Arturo%20Umberto%20Illia%202528%2C%20B1754IUP%20San%20Justo%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1731075168645!5m2!1ses-419!2sar" width="100%" height="300" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d410.1436698179777!2d-58.56454631707703!3d-34.67617970558415!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcc62e4022e425%3A0xf1440b1fec96f1f8!2sAv.%20Pres.%20Dr.%20Arturo%20Umberto%20Illia%202528%2C%20B1754IUP%20San%20Justo%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1731075168645!5m2!1ses-419!2sar" 
+            width="100%" 
+            height="300" 
+            loading="lazy" 
+            referrerPolicy="no-referrer-when-downgrade">
+            </iframe>
             </div>
         </section>
     );
