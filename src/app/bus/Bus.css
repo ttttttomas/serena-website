@@ -1,3 +1,5 @@
 .background{
-    background-image: url("https://s3-alpha-sig.figma.com/img/8603/9b85/b8327bc898508d0dde214aa595ad6b5a?Expires=1731888000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=adKmU9vM1ray7-~JpvBohZE-39sNUpjQqxWKEtgrEWsZQUJdjPmAU7W~D2k4QkoqRsRXsHgRB7JbTrh95Zh4N1qf7E-F-XBV8nC1xzz~pc-7uH05N9XB3qGD~0wSRBCot1jPvpmVT43TqYtSO00FLLlHdsDdA7S6FpDbMBSVuCdELBWXJDXND2f5XRpUKYF39FL2gs5ryfg9Uh7lYFmS~VKkP3s34gBjGdrav2YrP2L1nfpdt5wigson7sF79uYXDNgHoctB3cN~cjr6HrwPwdpJ0GaIbo-8pAU6nkzhV4jkoW~Dq7YOBdTtHrNF-2FTvgTVDEx7UvxxY4OKSF433w__");
+    background-image: url('/fondo-bus.png');
+    background-position: center;
+    background-size: cover;
 }
