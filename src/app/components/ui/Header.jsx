@@ -4,24 +4,27 @@ import Whatsapp from "./icons/Whatsapp";
 
 import HeaderList from "./HeaderList";
 import HeaderMobile from "../HeaderMobile";
-import MenuClient from "../ui/MenuClient";
 
-import {BOOMSTER} from "@/app/layout";
-import Link from "next/link";
+import { montserrat } from "@/app/layout";
+import Menu from "./icons/Menu";
 
 export default function Header() {
 
 // MD ES DESKTOP
 
+
     return (
         <>
     <header className="flex w-full md:flex-col flex-row">
         {/* <MenuClient /> */}
+        <div className="flex justify-center items-center pl-5 md:hidden">
+        <Menu />
+        </div>
         <div className="flex w-full justify-between md:px-10 px-5 py-5">
             <div className="flex items-center gap-x-4">
                 <Logo w="120" h="116" />
                 <img className="w-[206px] h-[79px] md:block hidden" src="/serena-nombre.png" alt="Nombre Logo" />
-                <span className={`${BOOMSTER.className} text-black text-4xl opacity-50 md:block hidden`}>LEGAJO 11999</span>
+                <span className={`text-black ${montserrat.className} italic text-2xl opacity-50 md:block hidden`} >LEGAJO 11999</span>
             </div>
             <div className="flex items-center">
                 <ul className="flex flex-col gap-y-5">

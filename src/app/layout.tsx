@@ -3,6 +3,7 @@ import {Montserrat, Moon_Dance, Assistant} from "next/font/google";
 import localfont from "next/font/local";
 import "./globals.css";
 import Header from "@/app/components/ui/Header";
+import HeaderMobile from "@/app/components/HeaderMobile"
 import Footer from "@components/Footer"
 
 // MONTSERRAT ✅
@@ -10,7 +11,7 @@ import Footer from "@components/Footer"
 // ASSISTANT
 // MOON DANCE
 
- export const BOOMSTER = localfont({
+export const BOOMSTER = localfont({
   src: [
     {
       path: "./fonts/BOOMSTER.otf",
@@ -50,11 +51,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-    <head><link rel="icon" href="/favicon.ico" sizes="any" /></head>
       <body
         className={`${montserrat.className} bg-whiteBg font-medium antialiased`}
       >
         <Header />
+        <HeaderMobile />
         {children}
         <Footer />
       </body>

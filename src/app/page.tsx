@@ -10,39 +10,40 @@ export default function Home() {
   return (
     <main>
         <img 
-        src="https://s3-alpha-sig.figma.com/img/9f78/ff13/cbc61869bd986e99aa6cf434ed34dcac?Expires=1731888000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=QmISYb-YxEizwwY03LCguk965kt~1qC3hfrvDZtlf4ivN9KCIYAY5LF561mjDop8f6qgQ77VbyB1BG9l6iT3a4c4RWSR33Sw7hjRw8uLxC7MYi9kM8xwO4My7MyB34Dw9iB-xtJo7SN581EtO3fOcE0PEyzB6egxnLABK-pcwEl30g5gFDtV9dU6TXkfRp14JJMS3IUrHVlbSqtmNskZ13TeFnpJw9gdxQeUQIVEUNhcndF9kOuIY5ei0h0RN9LY96V8ljkwGJ42Bg4zZNkuc3a-qfdC7COk-rkG7gkB2LDKovuf35SAKy50rLRbN~o5uJhLNZc9pituth6nP49bnQ__"
+        src="./fondo-inicio.png"
         alt="background" 
         className="w-full h-80 object-cover mt-1" 
         />
-    <section className="mx-16" id="boxs">
+    <section className="mx-5" id="boxs">
       <h1 className="text-center mt-8 font-bold text-3xl tracking-wider">
         NUESTROS PRODUCTOS DESTACADOS
       </h1>
-      <div className="flex justify-between mt-6 items-center">
+      <div className="flex flex-wrap justify-center gap-20 md:gap-48 mt-6 items-center">
         <img 
-        src="https://s3-alpha-sig.figma.com/img/ff4d/88ce/ab58e8d1c73be4468a5eb522a99236e3?Expires=1731888000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Dt29VAWHSeOMFkRt8FUG-pPTqOyNispid7iwWaBdDUSOtYwm4404Lbz~DwFuouHXJhx5O94Wrq9l6Q3aV2WT6AHsJXHy3lxE5v-YKZpMNRMn7sbdx1C7Rb9OuCLpyCmazYnvibfr0uM9mSZvSOtiSmeNRA-g2nyAtSpEXPGoWBudL6YLBRUzlJR3C2CDLj7GIwZsC79ioqEEIpwqecL9z0HPNv2BnEaFLjL-nOA75Nja3bDjhsUsB94HbixPSxJEndmS1as3P8N2NOyRwKf0OzfRIifXANGUNhj2R61jB4vprEOgkL0--aqlt6FSK0CIn9YIE7RLx37fvLqF-ys5xg__" 
-        className="w-64 h-72 object-cover rounded-xl shadow-md shadow-orangeLight" 
+        src="./productos-inicio.png" 
+        className="min-w-64 h-72 object-cover rounded-xl shadow-md shadow-orangeLight" 
         alt="" 
         />
         <img 
-        src="https://s3-alpha-sig.figma.com/img/ff4d/88ce/ab58e8d1c73be4468a5eb522a99236e3?Expires=1731888000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Dt29VAWHSeOMFkRt8FUG-pPTqOyNispid7iwWaBdDUSOtYwm4404Lbz~DwFuouHXJhx5O94Wrq9l6Q3aV2WT6AHsJXHy3lxE5v-YKZpMNRMn7sbdx1C7Rb9OuCLpyCmazYnvibfr0uM9mSZvSOtiSmeNRA-g2nyAtSpEXPGoWBudL6YLBRUzlJR3C2CDLj7GIwZsC79ioqEEIpwqecL9z0HPNv2BnEaFLjL-nOA75Nja3bDjhsUsB94HbixPSxJEndmS1as3P8N2NOyRwKf0OzfRIifXANGUNhj2R61jB4vprEOgkL0--aqlt6FSK0CIn9YIE7RLx37fvLqF-ys5xg__" 
-        className="w-64 h-72 object-cover rounded-xl shadow-md shadow-orangeLight" 
+        src="./productos-inicio.png" 
+        className="min-w-64 h-72 object-cover rounded-xl shadow-md shadow-orangeLight" 
         alt="" 
         />
         <img 
-        src="https://s3-alpha-sig.figma.com/img/ff4d/88ce/ab58e8d1c73be4468a5eb522a99236e3?Expires=1731888000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Dt29VAWHSeOMFkRt8FUG-pPTqOyNispid7iwWaBdDUSOtYwm4404Lbz~DwFuouHXJhx5O94Wrq9l6Q3aV2WT6AHsJXHy3lxE5v-YKZpMNRMn7sbdx1C7Rb9OuCLpyCmazYnvibfr0uM9mSZvSOtiSmeNRA-g2nyAtSpEXPGoWBudL6YLBRUzlJR3C2CDLj7GIwZsC79ioqEEIpwqecL9z0HPNv2BnEaFLjL-nOA75Nja3bDjhsUsB94HbixPSxJEndmS1as3P8N2NOyRwKf0OzfRIifXANGUNhj2R61jB4vprEOgkL0--aqlt6FSK0CIn9YIE7RLx37fvLqF-ys5xg__" 
-        className="w-64 h-72 object-cover rounded-xl shadow-md shadow-orangeLight" 
+        src="./productos-inicio.png" 
+        className="min-w-64 h-72 object-cover rounded-xl shadow-md shadow-orangeLight" 
         alt="" 
         />
         <img 
-        src="https://s3-alpha-sig.figma.com/img/ff4d/88ce/ab58e8d1c73be4468a5eb522a99236e3?Expires=1731888000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Dt29VAWHSeOMFkRt8FUG-pPTqOyNispid7iwWaBdDUSOtYwm4404Lbz~DwFuouHXJhx5O94Wrq9l6Q3aV2WT6AHsJXHy3lxE5v-YKZpMNRMn7sbdx1C7Rb9OuCLpyCmazYnvibfr0uM9mSZvSOtiSmeNRA-g2nyAtSpEXPGoWBudL6YLBRUzlJR3C2CDLj7GIwZsC79ioqEEIpwqecL9z0HPNv2BnEaFLjL-nOA75Nja3bDjhsUsB94HbixPSxJEndmS1as3P8N2NOyRwKf0OzfRIifXANGUNhj2R61jB4vprEOgkL0--aqlt6FSK0CIn9YIE7RLx37fvLqF-ys5xg__" 
-        className="w-64 h-72 object-cover rounded-xl shadow-md shadow-orangeLight" 
+        src="./productos-inicio.png" 
+        className="min-w-64 h-72 object-cover rounded-xl shadow-md shadow-orangeLight" 
         alt="" 
         />
       </div>
-      <section className="flex gap-5 justify-center items-center mt-28">
-        <div className="flex w-[890px] h-[400px] shadow-2xl">
-          <div className="py-8 grid border-r border-black h-full w-36 pr-2 grid-cols-2 bg-creamBg">
+
+      <section id='elegirnos' className="flex gap-5 justify-center lg:flex-col xl:flex-row flex-col items-center mt-28">
+        <div className="flex xl:w-[890px] h-auto xl:h-[400px] w-full shadow-2xl">
+          <div className="grid border-r pr-20 border-black w-36 grid-cols-2 bg-creamBg">
               <AsesoriaIcon />
           </div>
           <div className='flex w-full gap-y-10 flex-col p-8'>
@@ -56,8 +57,8 @@ export default function Home() {
 
                           {/* SEPARACION DE CONTENEDORES  */}
 
-        <div className="flex w-[890px] h-[400px] shadow-2xl">
-          <div className="py-8 grid border-r border-black h-full w-36 pr-2 grid-cols-2 bg-creamBg">
+        <div className="flex xl:w-[890px] h-auto xl:h-[400px] w-full shadow-2xl">
+          <div className="grid border-r pr-20 border-black w-36 grid-cols-2 bg-creamBg">
               <MedicIcon />
           </div>
           <div className='flex w-full gap-y-10 flex-col p-8'>
@@ -69,15 +70,18 @@ export default function Home() {
           </div>
         </div>
       </section>
+      
     </section>
+
     <section id="why-us" className="bg-creamBg pb-10 mt-20 mb-10 flex flex-col">
       <h2 className='text-center text-3xl py-5'>¿POR QUÉ ELEGIRNOS PARA TUS VACACIONES?</h2>
       <BoxsHome />
     </section>
-    <section id="opinions">
+
+    <section id="opinions" className='flex flex-col justify-center'>
       <h4 className='text-3xl text-center mb-20'>ALGUNAS DE NUESTRAS RESEÑAS</h4>
-        <ul className='flex justify-center text-center'>
-          <li className='relative p-20'>
+        <ul className='flex justify-center text-center flex-wrap'>
+          <li className='relative p-20 mx-5'>
             <div className='absolute -top-7 left-[150px]'>
             <OpinionExample />
             </div>
