@@ -8,17 +8,17 @@ import Link from 'next/link';
 
 export default function Home() {
   return (
-    <main>
+    <main className=''>
         <img 
         src="./fondo-inicio.png"
         alt="background" 
-        className="w-full h-80 object-cover mt-1" 
+        className="h-80 w-full object-cover mt-1" 
         />
     <section className="mx-5" id="boxs">
       <h1 className="text-center mt-8 font-bold text-3xl tracking-wider">
         NUESTROS PRODUCTOS DESTACADOS
       </h1>
-      <div className="flex flex-wrap justify-center gap-20 md:gap-48 mt-6 items-center">
+      <div className="flex  flex-wrap justify-center gap-20 md:gap-48 mt-6 items-center">
         <img 
         src="./productos-inicio.png" 
         className="min-w-64 h-72 object-cover rounded-xl shadow-md shadow-orangeLight" 
