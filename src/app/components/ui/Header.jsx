@@ -16,7 +16,6 @@ export default function Header() {
     return (
         <>
     <header className="flex w-full md:flex-col flex-row">
-        {/* <MenuClient /> */}
         <div className="flex justify-center items-center pl-5 md:hidden">
         <Menu />
         </div>
