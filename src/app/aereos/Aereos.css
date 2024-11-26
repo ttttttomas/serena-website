@@ -1,0 +1,12 @@
+.backgroundAereos{
+    background-image: url('/fondo-aereos.png');
+    background-position: center;
+    background-size: cover;
+}
+
+option, select, input{
+    background-color: #F7C8AA;
+    padding: 3px;
+    border-radius: 10px;
+;
+}
