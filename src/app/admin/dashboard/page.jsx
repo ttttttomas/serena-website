@@ -22,7 +22,7 @@ return(
                         <Admin3/>
                         <p>Cartelera</p>
                     </Link>
-                    <Link href="/admin/dashboard/destacados" className="flex gap-2">
+                    <Link href="/admin/dashboard/" className="flex gap-2">
                         <Admin4/>
                         <p>Cerrar sesión</p>
                     </Link>
