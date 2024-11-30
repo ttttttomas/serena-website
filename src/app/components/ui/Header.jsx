@@ -1,12 +1,14 @@
 import Logo from "./icons/Logo";
 import Instagram from "./icons/Instagram";
 import Whatsapp from "./icons/Whatsapp";
+import AdminIcon from "./icons/AdminIcon";
 
 import HeaderList from "./HeaderList";
 import HeaderMobile from "../HeaderMobile";
 
 import { montserrat } from "@/app/layout";
 import Menu from "./icons/Menu";
+import Link from "next/link";
 
 export default function Header() {
 
@@ -15,7 +17,7 @@ export default function Header() {
 
     return (
         <>
-    <header className="flex w-full md:flex-col flex-row">
+    <header className="text-black flex w-full md:flex-col flex-row">
         <div className="flex justify-center items-center pl-5 md:hidden">
         <Menu />
         </div>
@@ -25,7 +27,7 @@ export default function Header() {
                 <img className="w-[206px] h-[79px] md:block hidden" src="/serena-nombre.png" alt="Nombre Logo" />
                 <span className={`text-black ${montserrat.className} italic text-2xl opacity-50 md:block hidden`} >LEGAJO 11999</span>
             </div>
-            <div className="flex items-center">
+            <div className="flex items-center  gap-x-5">
                 <ul className="flex flex-col gap-y-5">
                     <li className="flex items-center gap-x-3">
                         <div className="flex flex-col">
@@ -39,6 +41,10 @@ export default function Header() {
                          <Instagram />
                     </li>
                 </ul>
+                <Link href="/admin" className="flex items-center justify-end gap-3 cursor-pointer hover:underline">
+                    <p>Acceso</p>
+                    <AdminIcon />
+                </Link>
             </div>
         </div>
 
