@@ -1,5 +1,5 @@
-import DateExample from '@components/ui/icons/DateExample'
 import Pagination from '@components/Pagination'
+import PackCard from '@components/PackCard'
 
 export const metadata = {
     title: "Serena | Paquetes Nacionales",
@@ -10,86 +10,23 @@ export const metadata = {
 export default function Nacionales() {
     return (
         <main>
-             <img 
-        src="./nacionales-background.png"
-        alt="background-section" 
-        className="w-full h-80 object-cover mt-1" 
-        />
-        <section className="w-3/5 mx-auto">
-            <h5 className="bg-opinionBg text-2xl py-1 w-full clip text-center mt-8 font-bold">
-                NUESTROS NACIONALES
-            </h5>
-            <div className="container rounded-2xl cursor-pointer hover:scale-105 hover:shadow-orangeMedium transition-all flex p-3 gap-20 my-5 shadow-md shadow-gray-400 pr-10">
-               <div>
-                <img
-                    className="rounded-2xl"
-                    width="900px"
-                    src="./background-paquetes.png"
-                    alt="background-destino" /> 
-               </div>
-
-               <div className="flex flex-col justify-between w-full">
-                    <div className="flex justify-between items-center">
-                        <h6 className="text-orangeMedium text-2xl font-bold">Ruta 40 al Sur</h6>
-                        <ul className="flex gap-10 font-bold">
-                            <li>Bus Cama</li>
-                            <li>14</li>
-                            <li>10</li>
-                            <li>DES</li>
-                        </ul>
-                    </div>
-                    <div className="flex flex-col gap-3 items-center">
-                        <p className='font-semibold'>2 nts en Esquel - 2 nts en Perito Moreno - 2 nts en Chaltén - 2 nts en Calafate - 2 nts en Puerto Madryn</p>
-                        <small>Incluye: El Bolsón + Esquel + Parque nacional Lago Pueblo + Los Antiguos + Perito Moreno + El Chaltén + El Calafate + Piedra Buena + San Julián + Puerto Madryn y Gaimán.</small>
-                    </div>
-                    <div className='flex items-center justify-between'>
-                        <p className='text-orangeMedium font-bold text-5xl'>$ 1.298.580.-</p>
-                        <ul className='flex'>
-                            <DateExample />
-                            <DateExample />
-                        </ul>
-                    </div>
-               </div>
-
-            </div>
-            <div className="container rounded-2xl cursor-pointer hover:scale-105 hover:shadow-orangeMedium transition-all flex p-3 gap-20 my-5 shadow-md shadow-gray-400 pr-10">
-               <div>
-                <img
-                    className="rounded-2xl"
-                    width="900px"
-                    src="./background-paquetes.png"
-                    alt="background-destino" /> 
-               </div>
-
-               <div className="flex flex-col justify-between w-full">
-                    <div className="flex justify-between items-center">
-                        <h6 className="text-orangeMedium text-2xl font-bold">Ruta 40 al Sur</h6>
-                        <ul className="flex gap-10 font-bold">
-                            <li>Bus Cama</li>
-                            <li>14</li>
-                            <li>10</li>
-                            <li>DES</li>
-                        </ul>
-                    </div>
-                    <div className="flex flex-col gap-3 items-center">
-                        <p className='font-semibold'>2 nts en Esquel - 2 nts en Perito Moreno - 2 nts en Chaltén - 2 nts en Calafate - 2 nts en Puerto Madryn</p>
-                        <small>Incluye: El Bolsón + Esquel + Parque nacional Lago Pueblo + Los Antiguos + Perito Moreno + El Chaltén + El Calafate + Piedra Buena + San Julián + Puerto Madryn y Gaimán.</small>
-                    </div>
-                    <div className='flex items-center justify-between'>
-                        <p className='text-orangeMedium font-bold text-5xl'>$ 1.298.580.-</p>
-                        <ul className='flex'>
-                            <DateExample />
-                            <DateExample />
-                        </ul>
-                    </div>
-               </div>
-
-            </div>
-
+            <img 
+             src="./nacionales-background.png"
+             alt="background-section" 
+             className="w-full h-80 object-cover mt-1" 
+            />
+            <section className="w-3/5 mx-auto">
+                <h5 className="bg-opinionBg text-2xl py-1 w-full clip text-center mt-8 font-bold">
+                    NUESTROS NACIONALES
+                </h5>
+            <PackCard />
+            <PackCard />
+            <PackCard />
+            <PackCard />
             <div className='flex justify-center items-center mb-5'>
-            <Pagination />
+                <Pagination />
             </div>
-        </section>
+            </section>
         </main>
     );
 }
