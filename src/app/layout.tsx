@@ -61,6 +61,7 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
+        
         </MenuContextProvider>
       </body>
     </html>
