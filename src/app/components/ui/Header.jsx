@@ -36,13 +36,12 @@ export default function Header() {
                         </div>
                          <Whatsapp />
                     </li>
-                    <li className="flex items-center justify-end gap-x-3">
+                    <Link href={"https://www.instagram.com/serenaviajes/"} target="_blank" className="flex items-center justify-end gap-x-3">
                         <p className="md:text-sm text-xs text-black">serenaviajes</p>
                          <Instagram />
-                    </li>
+                    </Link>
                 </ul>
                 <Link href="/admin" className="flex items-center justify-end gap-3 cursor-pointer hover:underline">
-                    <p>Acceso</p>
                     <AdminIcon />
                 </Link>
             </div>

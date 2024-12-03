@@ -1,20 +1,22 @@
 'use client'
-import { useState } from "react"
+import { useContext, useState } from "react"
 
 import Logo from "./ui/icons/Logo"
 import Flecha from "./ui/icons/Flecha"
+
 import Cruz from "./ui/icons/Cruz"
 
 import { Separator } from "@/components/ui/separator"
+import { menuContext } from "@/app/context/MenuContext";
 
 
 export default function HeaderMobile() {
-    const [isActive, setIsActive] = useState(false)
-    
+    const { isActive, setIsActive } = useContext(menuContext);
+   
 
     return (
         <header 
-        className={`${isActive ? "flex" : "hidden"} flex-col fixed top-0 gap-y-2 justify-between items-center h-full bg-creamBg`}
+        className={`${isActive ? "flex" : "hidden"} transition-all flex-col fixed top-0 gap-y-2 justify-between items-center h-full bg-creamBg`}
         >
             <div>
             <div onClick={() => setIsActive(!isActive)} className="flex justify-start px-5 h-[153.5px] items-center">

@@ -23,7 +23,7 @@ export default function BoxsHome() {
         } 
     ]
     return (
-        <div className="grid grid-rows-2 gap-y-10 gap-x-20 md:grid-cols-2 md:gap-x-40 lg:gap-x-60 xl:gap-x-80 justify-center">
+        <div className="flex justify-center flex-wrap md:flex-nowrap items-center"> 
             {
                 boxs.map((box) => {
                     return (
@@ -33,7 +33,7 @@ export default function BoxsHome() {
                         >
                             <img 
                             src={box.img} 
-                            className="size-[107px]" 
+                            className="w-20" 
                             alt={box.id} 
                             />
                             <p className="w-3/4 text-center">{box.text}</p>

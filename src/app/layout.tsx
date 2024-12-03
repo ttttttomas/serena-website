@@ -5,6 +5,7 @@ import "./globals.css";
 import Header from "@/app/components/ui/Header";
 import HeaderMobile from "@/app/components/HeaderMobile"
 import Footer from "@components/Footer"
+import MenuContextProvider from "@/app/context/MenuContext";
 
 // MONTSERRAT ✅
 // BOOMSTER ✅
@@ -54,10 +55,13 @@ export default function RootLayout({
       <body
         className={`${montserrat.className} bg-whiteBg font-medium antialiased`}
       >
-        <Header />
+        <MenuContextProvider>
+
         <HeaderMobile />
+        <Header />
         {children}
         <Footer />
+        </MenuContextProvider>
       </body>
     </html>
   );

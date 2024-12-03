@@ -5,8 +5,8 @@ import Link from 'next/link'
 import { Separator } from '@/components/ui/separator'
 
 export default function HeaderList() {
-    const classNameHidden = "absolute flex left-[-40px] justify-center items-center gap-y-2 top-8 px-2 py-2 flex-col border my-2 bg-orangeMedium hidden"
-    const classNameVisible = "absolute flex left-[-40px] justify-center items-center gap-y-2 top-8 px-2 py-2 flex-col border my-2 bg-orangeMedium"
+    const classNameHidden = "absolute flex left-[-40px] justify-center items-center gap-y-2 top-8 px-2 py-2 flex-col my-2 bg-orangeMedium hidden"
+    const classNameVisible = "absolute flex left-[-40px] justify-center items-center gap-y-2 top-8 px-2 py-2 flex-col my-2 bg-orangeMedium"
     const [listFirst, setListFirst] = useState(classNameHidden)
     const [listSecond, setListSecond] = useState(classNameHidden)
     
