@@ -15,7 +15,7 @@ export default function Nacionales() {
              alt="background-section" 
              className="w-full h-80 object-cover mt-1" 
             />
-            <section className="w-3/5 mx-auto">
+            <section className="md:w-3/5 md:mx-auto mx-3">
                 <h5 className="bg-opinionBg text-2xl py-1 w-full clip text-center mt-8 font-bold">
                     NUESTROS NACIONALES
                 </h5>
