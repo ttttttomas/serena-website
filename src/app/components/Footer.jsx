@@ -75,7 +75,7 @@ export default function Footer() {
                 </div>
 
                 <div className="flex flex-col justify-center items-center">
-                   <p className={`${moonDance.className} text-xl my-10`}>Razon social: Trappberger, Cynthia Liana - Cuit: 27-23174619-1 </p> 
+                   <p className={`${moonDance.className} text-lg my-10`}>Razon social: Trappberger, Cynthia Liana - Cuit: 27-23174619-1 </p> 
                    <Separator />
                    <p className="flex justify-center items-center">
                       Desarrollado por <img src="/iWeb.png" alt="Logo" width="121"/>
