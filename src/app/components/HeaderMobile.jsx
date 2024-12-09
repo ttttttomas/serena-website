@@ -37,7 +37,7 @@ export default function HeaderMobile() {
                 <li onClick={() =>{setIsOpenPacks(!isOpenPacks)}} 
                     className="flex items-center justify-between cursor-pointer transition-all duration-400">
                     <p>Paquetes</p>
-                    <div>
+                    <div className={`${isOpenPacks ? "rotate-180" : ""} cursor-pointer transition-all duration-200`}>
                     <Flecha />
                     </div>
                 </li>
@@ -56,7 +56,7 @@ export default function HeaderMobile() {
                 <li onClick={() =>{setIsOpenPass(!isOpenPass)}} 
                     className="flex items-center justify-between cursor-pointer transition-all duration-400">
                     <p>Pasajes</p>
-                    <div>
+                    <div className={`${isOpenPass ? "rotate-180" : ""} cursor-pointer transition-all duration-200`}>
                     <Flecha />
                     </div>
                 </li>
