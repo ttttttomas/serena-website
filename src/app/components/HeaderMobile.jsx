@@ -14,8 +14,6 @@ import Link from "next/link"
 export default function HeaderMobile() {
     const { isActive, setIsActive } = useContext(menuContext);
 
-    // onClick={() =>{setIsOpenPacks(!isOpenPacks)}} className={`${isOpenPacks ? "rotate-180" : ""} cursor-pointer transition-all duration-200`}
-
     const [isOpenPacks, setIsOpenPacks] = useState(false);
     const [isOpenPass, setIsOpenPass] = useState(false);
 
@@ -66,6 +64,10 @@ export default function HeaderMobile() {
                         <Separator />
                         <Link href="/aereos">Aéreos</Link>
                     </ul>
+                <div className="my-2">
+                    <Separator />
+                </div>
+                <Link href="about-us">¿Quienes Somos?</Link>
                 <div className="my-2">
                     <Separator />
                 </div>

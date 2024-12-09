@@ -5,7 +5,7 @@ import DateExample from './ui/icons/DateExample'
 export default function PackCard() {
     return (
         <Link href={`/nacionales/`} 
-              className="container rounded-2xl cursor-pointer hover:scale-105 hover:shadow-orangeMedium transition-all flex flex-col xl:flex-row p-3
+              className="container rounded-2xl cursor-pointer md:hover:scale-105 md:hover:shadow-orangeMedium transition-all flex flex-col xl:flex-row p-3
                 gap-5 my-5 shadow-md shadow-gray-400 xl:pr-10">
                <div className='flex items-center justify-center'>
                 <img
