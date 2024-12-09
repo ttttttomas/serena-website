@@ -1,5 +1,5 @@
 'use client'
-import { useContext} from "react"
+import { useContext, useState} from "react"
 
 import Logo from "./ui/icons/Logo"
 import Flecha from "./ui/icons/Flecha"
@@ -8,37 +8,68 @@ import Cruz from "./ui/icons/Cruz"
 
 import { Separator } from "@/components/ui/separator"
 import { menuContext } from "@/app/context/MenuContext";
+import Link from "next/link"
 
 
 export default function HeaderMobile() {
     const { isActive, setIsActive } = useContext(menuContext);
-   
+
+    // onClick={() =>{setIsOpenPacks(!isOpenPacks)}} className={`${isOpenPacks ? "rotate-180" : ""} cursor-pointer transition-all duration-200`}
+
+    const [isOpenPacks, setIsOpenPacks] = useState(false);
+    const [isOpenPass, setIsOpenPass] = useState(false);
 
     return (
         <header 
-        className={`${isActive ? "flex" : "hidden"} transition-all z-50 flex-col fixed top-0 gap-y-2 justify-between items-center h-full bg-creamBg`}
+        className={`${isActive ? "w-42" : "w-0"} text-black flex transition-all duration-200 overflow-hidden z-50 flex-col fixed top-0 gap-y-2 justify-between items-center h-full bg-creamBg`}
         >
             <div>
             <div onClick={() => setIsActive(!isActive)} className="flex justify-start px-5 h-[153.5px] items-center">
             <Cruz />
             </div>
             <div className="bg-orangeMedium w-full border-none h-5"></div>
-            <ul className="flex flex-col text-lg py-5 px-3 font-bold gap-2">
-                <li>Inicio</li>
-                <Separator />
-                <li className="flex items-center justify-between">
+            <ul className="flex flex-col text-lg py-5 px-3 font-black gap-2">
+                <Link href="/">Inicio</Link>
+                <div className="my-2">
+                    <Separator />
+                </div>
+                
+                <li onClick={() =>{setIsOpenPacks(!isOpenPacks)}} 
+                    className="flex items-center justify-between cursor-pointer transition-all duration-400">
                     <p>Paquetes</p>
-                    <Flecha />               
-                </li>
-                <Separator />
-                <li className="flex items-center justify-between">
-                    <p>Pasajes</p>
+                    <div>
                     <Flecha />
+                    </div>
                 </li>
-                <Separator />
-                <li>Quienes somos</li>
-                <Separator />
-                <li>Contacto</li>
+
+                <ul className={`${isOpenPacks ? "h-14" : "h-0"} overflow-hidden transition-all duration-400 font-medium flex flex-col gap-[0.5px]`}>
+                        <Link href="/nacionales">Nacionales</Link>
+                        <Separator />
+                        <Link href="/internacionales">Internacionales</Link>
+                    </ul>
+
+
+                <div className="my-2">
+                    <Separator />
+                </div>
+
+                <li onClick={() =>{setIsOpenPass(!isOpenPass)}} 
+                    className="flex items-center justify-between cursor-pointer transition-all duration-400">
+                    <p>Pasajes</p>
+                    <div>
+                    <Flecha />
+                    </div>
+                </li>
+
+                <ul className={`${isOpenPass ? "h-14" : "h-0"} overflow-hidden transition-all duration-400 font-medium flex flex-col gap-[0.5px]`}>
+                        <Link href="/bus">Bus</Link>
+                        <Separator />
+                        <Link href="/aereos">Aéreos</Link>
+                    </ul>
+                <div className="my-2">
+                    <Separator />
+                </div>
+                <Link href="contact">Contacto</Link>
             </ul>
             </div> 
 

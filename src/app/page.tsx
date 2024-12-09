@@ -86,7 +86,7 @@ export default function Home() {
             <OpinionExample />
             </div>
             <div className='flex justify-center items-center z-50 bg-opinionBg h-52 w-80'>
-              <p className='z-50 text-center px-10'>"bla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla bla"</p>
+              <p className='z-40 text-center px-10'>"bla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla bla"</p>
             </div>
           </li>
           <li className='relative p-20'>
@@ -94,7 +94,7 @@ export default function Home() {
             <OpinionExample />
             </div>
             <div className='flex justify-center items-center z-50 bg-opinionBg h-52 w-80'>
-              <p className='z-50 text-center px-10'>"bla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla bla"</p>
+              <p className='z-40 text-center px-10'>"bla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla bla"</p>
             </div>
           </li>
           <li className='relative p-20'>
@@ -102,7 +102,7 @@ export default function Home() {
             <OpinionExample />
             </div>
             <div className='flex justify-center items-center z-50 bg-opinionBg h-52 w-80'>
-              <p className='z-50 text-center px-10'>"bla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla bla"</p>
+              <p className='z-40 text-center px-10'>"bla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla bla"</p>
             </div>
           </li>
         </ul>
