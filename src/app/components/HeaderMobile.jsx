@@ -16,7 +16,7 @@ export default function HeaderMobile() {
 
     return (
         <header 
-        className={`${isActive ? "flex" : "hidden"} transition-all flex-col fixed top-0 gap-y-2 justify-between items-center h-full bg-creamBg`}
+        className={`${isActive ? "flex" : "hidden"} transition-all z-50 flex-col fixed top-0 gap-y-2 justify-between items-center h-full bg-creamBg`}
         >
             <div>
             <div onClick={() => setIsActive(!isActive)} className="flex justify-start px-5 h-[153.5px] items-center">
