@@ -6,9 +6,9 @@ export default function ProductNationalPage() {
         alt="background-section" 
         className="w-full h-[400px] object-cover mt-1" 
         />
-        <section className="flex">
+        <section className="flex md:flex-row flex-col">
             <div className="w-full mb-10">
-                <ul className="flex bg-creamBg py-4 gap-32 justify-center font-bold px-8 text-center">
+                <ul className="flex bg-creamBg py-4 md:gap-32 text-sm md:text-base gap-3 justify-center font-semibold px-8 text-center">
                     <li>Detalles</li>
                     <li>Itinerario</li>
                     <li>Incluye</li>
@@ -88,8 +88,8 @@ export default function ProductNationalPage() {
             </div>
 
 
-            <div className="w-1/4 flex flex-col items-center">
-                <div className="bg-creamBg w-full text-center pb-8 rounded-bl-3xl">
+            <div className="md:w-1/4 flex md:mx-0 mx-5 flex-col items-center">
+                <div className="bg-creamBg w-full text-center pb-8 rounded-3xl md:rounded-none md:rounded-bl-3xl">
                 <h4 className="text-center font-bold pt-5 text-lg">
                     ¿Te gustaría reservar?
                 </h4>
@@ -105,7 +105,7 @@ export default function ProductNationalPage() {
                     <button type="submit" className="bg-orange-500 text-white w-64 rounded-lg py-2">Enviar</button>
                 </form>
                 </div>
-                <div className="flex flex-col gap-3 mt-5 rounded-l-3xl w-full bg-creamBg">
+                <div className="flex flex-col gap-3 mt-5 rounded-3xl md:rounded-none md:rounded-l-3xl w-full bg-creamBg">
                     <p className="font-bold text-center pt-5 text-xl">¿Por qué reservar con nosotros?</p>
                     <ul className="flex pl-8 pr-6 mb-7 flex-col gap-3 text-start">
                         <li>Te brindamos asistencia y asesoría en todo tu viaje</li>
@@ -113,7 +113,7 @@ export default function ProductNationalPage() {
                         <li>Te brindamos asistencia médica para que viajes de manera segura</li>
                     </ul>
                 </div>
-                <div className="flex flex-col gap-3 mt-5 rounded-l-3xl bg-creamBg items-center">
+                <div className="flex flex-col gap-3 mt-5 rounded-3xl mb-10 md:rounded-none md:rounded-l-3xl bg-creamBg items-center">
                     <p className="font-bold text-center pt-5 text-xl">¿Tenes alguna duda?</p>
                     <span className=" text-center">No dudes en comunicarte con nosotros por cualquier consulta que tengas</span>
                     <ul className="flex flex-col mb-7 gap-3 text-start">
