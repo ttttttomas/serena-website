@@ -64,12 +64,12 @@ export default function Footer() {
                         </div>
                          <Whatsapp />
                     </div>
-                  <p className="flex items-center gap-x-3">
+                  <Link href={"https://www.instagram.com/serenaviajes/"} target="_blank" className="flex items-center gap-x-3">
                     serenaviajes <Instagram />
-                  </p>
-                  <p className="flex items-center gap-x-3">
+                  </Link>
+                  <Link href="https://www.facebook.com/serena.viajes/" target="_blank" className="flex items-center gap-x-3">
                     Serena Viajes <Facebook />
-                  </p>
+                  </Link>
                 </div>
 
                 </div>
@@ -77,9 +77,9 @@ export default function Footer() {
                 <div className="flex flex-col justify-center items-center">
                    <p className={`${moonDance.className} text-lg my-10`}>Razon social: Trappberger, Cynthia Liana - Cuit: 27-23174619-1 </p> 
                    <Separator />
-                   <p className="flex justify-center items-center">
+                   <Link href="https://iwebtecnology.com/" target="_blank" className="flex justify-center items-center">
                       Desarrollado por <img src="/iWeb.png" alt="Logo" width="121"/>
-                    </p> 
+                    </Link>
                 </div>
         </section>
     </footer>
