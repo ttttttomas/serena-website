@@ -5,6 +5,7 @@ import Header from "@/app/components/ui/Header";
 import HeaderMobile from "@/app/components/HeaderMobile"
 import Footer from "@components/Footer"
 import MenuContextProvider from "@/app/context/MenuContext";
+import ProductsContextProvider from "@/app/context/ProductsContext";
 
 export const BOOMSTER = localfont({
   src: [
@@ -47,14 +48,16 @@ export default function RootLayout({
       <body
         className={`${montserrat.className} bg-whiteBg font-medium antialiased`}
       >
-        <MenuContextProvider>
+        <ProductsContextProvider>
 
+        <MenuContextProvider>
         <HeaderMobile />
         <Header />
         {children}
         <Footer />
-        
         </MenuContextProvider>
+
+        </ProductsContextProvider>
       </body>
     </html>
   );

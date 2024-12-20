@@ -1,14 +1,28 @@
-import BoxsHome from './components/ui/BoxsHome'
+'use client'
 import AsesoriaIcon from './components/ui/icons/Asesoria'
 import MedicIcon from './components/ui/icons/Medic'
 import OpinionExample from './components/ui/icons/OpinionExample'
-
 import Checked from './components/ui/icons/Checked'
-import Link from 'next/link';
+
+import BoxsHome from './components/ui/BoxsHome'
+
+import { productsContext } from '@/app/context/ProductsContext';
+import { useContext,useEffect } from 'react';
 
 export default function Home() {
+  const { products,getProducts } = useContext(productsContext);
+
+  useEffect(() => {
+    const loadProducts = async () => {
+      await getProducts()
+    }
+    loadProducts()
+  }, [])
+
+  console.log(products) 
+
   return (
-    <main className=''>
+    <main>
         <img 
         src="./fondo-inicio.png"
         alt="background" 
