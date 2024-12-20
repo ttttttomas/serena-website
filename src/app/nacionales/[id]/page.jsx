@@ -1,13 +1,10 @@
 'use client'
 import { useContext,useEffect } from 'react'
 import { productsContext } from '@/app/context/ProductsContext';
-import { useSearchParams } from 'next/navigation';
-
 
 export default function ProductNationalPage({params}) {
     const { products, setProducts, getProductById } = useContext(productsContext);
-    console.log(params.id);
-    const { id } = params;
+
 
     useEffect(() => {
       const loadProductId = async () => {
