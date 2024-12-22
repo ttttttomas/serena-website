@@ -17,9 +17,6 @@ export default function Nacionales() {
                     NUESTROS NACIONALES
                 </h5>
             <PackCard />
-            <PackCard />
-            <PackCard />
-            <PackCard />
             <div className='flex justify-center items-center mb-5'>
                 <Pagination />
             </div>
