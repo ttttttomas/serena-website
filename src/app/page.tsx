@@ -10,17 +10,6 @@ import { productsContext } from '@/app/context/ProductsContext';
 import { useContext,useEffect } from 'react';
 
 export default function Home() {
-  const { products,getProducts } = useContext(productsContext);
-
-  useEffect(() => {
-    const loadProducts = async () => {
-      await getProducts()
-    }
-    loadProducts()
-  }, [])
-
-  console.log(products) 
-
   return (
     <main>
         <img 
