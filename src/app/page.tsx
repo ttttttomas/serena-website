@@ -6,9 +6,6 @@ import Checked from './components/ui/icons/Checked'
 
 import BoxsHome from './components/ui/BoxsHome'
 
-import { productsContext } from '@/app/context/ProductsContext';
-import { useContext,useEffect } from 'react';
-
 export default function Home() {
   return (
     <main>
