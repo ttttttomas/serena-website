@@ -15,6 +15,7 @@
     "utils": "@/lib/utils",
     "ui": "@/components/ui",
     "lib": "@/lib",
+    "dashboard": "@/components/dashboard",
     "hooks": "@/hooks"
   }
 }

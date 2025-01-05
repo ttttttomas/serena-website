@@ -1,3 +1,7 @@
 .border{
     border-radius: 21px 21px 100px 100px / 21px 21px 100px 100px; 
 }
+.input{
+    padding: 10px 0px 10px 20px;
+    border-radius: 8px;
+}
