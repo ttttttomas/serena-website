@@ -1,5 +1,6 @@
 import {Montserrat, Moon_Dance, Assistant} from "next/font/google";
 import localfont from "next/font/local";
+import {Toaster} from "sonner"
 import "./globals.css";
 import Header from "@/app/components/ui/Header";
 import HeaderMobile from "@/app/components/HeaderMobile"
@@ -48,6 +49,7 @@ export default function RootLayout({
       <body
         className={`${montserrat.className} bg-whiteBg font-medium antialiased`}
       >
+        <Toaster position="bottom-center" richColors />
         <ProductsContextProvider>
 
         <MenuContextProvider>
