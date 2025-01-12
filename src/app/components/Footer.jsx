@@ -11,19 +11,19 @@ export default function Footer() {
     return (
         <footer>
       <ul className='flex justify-between items-center underline flex-wrap gap-y-5 px-10 py-5 gap-x-10 bg-orangeMedium text-white'>
-        <Link href="/documentation">
+        <Link href="/documentacion">
           <li>● Documentación para salir del país</li>
         </Link>      
-        <Link href="cancelation">
+        <Link href="/cancelacion">
           <li>● Política de cancelación</li>
         </Link>
-        <Link href="terminos">
+        <Link href="/terminos">
           <li>● Términos y condiciones</li>
         </Link>
-        <Link href="privacity">
+        <Link href="/privacidad">
           <li>● Política de privacidad y menores</li>
         </Link>
-        <Link href="cartelera">
+        <Link href="/cartelera">
           <li>● Cartelera</li>
         </Link>
       </ul>
