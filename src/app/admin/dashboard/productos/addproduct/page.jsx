@@ -1,9 +1,9 @@
-'use client'
+"use client";
 import "../../../dashboard/Dashboard.css";
 import { Separator } from "@/components/ui/separator";
-import { useForm } from "react-hook-form";
-import {useContext} from "react";
-import {productsContext} from "@/app/context/ProductsContext";
+import { set, useForm } from "react-hook-form";
+import { useContext, useState } from "react";
+import { productsContext } from "@/app/context/ProductsContext";
 
 import Add from "@components/ui/icons/Add";
 import Delete from "@components/ui/icons/Delete";
@@ -11,24 +11,42 @@ import Delete from "@components/ui/icons/Delete";
 import Link from "next/link";
 
 export default function AddProductAdminPage() {
-
+  const [image, setImage] = useState([]);
   const { createProduct } = useContext(productsContext);
 
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, setValue } = useForm();
+
+  const handleFileChange = async (e) => {
+    const imageFile = e.target.files[0];
+    const url = `https://api.imgbb.com/1/upload?key=95eacfe7e3c98a0752a1c18aa38942a7&image=${imageFile.name}`;
+    const data = new FormData();
+    data.append("image", imageFile);
+
+    try {
+      const response = await fetch(url, {
+        method: "POST",
+        body: data,
+      });
+      const responseData = await response.json();
+      setImage(responseData.data.url);
+      setValue("image", responseData.data.url);
+      console.log(responseData.data.url);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   const onSubmit = handleSubmit(async (data, e) => {
     e.preventDefault();
     const res = await createProduct(data);
     console.log(res);
-    
-  })
+  });
 
   return (
     <main className="flex flex-col mx-14 my-10 h-full">
       <Link
         href="/admin/dashboard/productos"
-        className="flex items-center gap-1 cursor-pointer"
-      >
+        className="flex items-center gap-1 cursor-pointer">
         <span>👈</span>
         <p>Volver</p>
       </Link>
@@ -40,7 +58,7 @@ export default function AddProductAdminPage() {
           <section className="flex flex-col gap-4">
             <input
               placeholder="Destino"
-              {...register("destino", {required: true}) }
+              {...register("destino", { required: true })}
               className="input shadow-md shadow-black/30 w-full"
               type="text"
             />
@@ -48,7 +66,7 @@ export default function AddProductAdminPage() {
             <div className="flex gap-2 items-center justify-between">
               <input
                 className="text-gray-400 input shadow-md w-40 shadow-black/30"
-              {...register("date", {required: true}) }
+                {...register("date", { required: true })}
                 type="date"
               />
               <Add width="30px" />
@@ -58,7 +76,7 @@ export default function AddProductAdminPage() {
               <input
                 className="input shadow-md w-40 shadow-black/30"
                 type="date"
-              // {...register("date", {required: false}) }
+                // {...register("date", {required: false}) }
               />
               <Delete width="30px" />
             </div>
@@ -67,11 +85,9 @@ export default function AddProductAdminPage() {
 
             <div className="flex items-center gap-5 justify-between">
               <select
-              {...register("days", {required: true}) }
-
+                {...register("days", { required: true })}
                 className="text-gray-400 text-start text-sm input w-full shadow-md shadow-black/30"
-                id="days"
-              >
+                id="days">
                 <option value="Noches">Dias</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -81,11 +97,9 @@ export default function AddProductAdminPage() {
                 <option value="7">7</option>
               </select>
               <select
-              {...register("nights", {required: true}) }
-
+                {...register("nights", { required: true })}
                 className="text-gray-400 text-start text-sm input w-full shadow-md shadow-black/30"
-                id="nights"
-              >
+                id="nights">
                 <option value="Noches">Noches</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -96,11 +110,9 @@ export default function AddProductAdminPage() {
               </select>
             </div>
             <select
-              {...register("regimen", {required: true}) }
-
+              {...register("regimen", { required: true })}
               className="text-gray-400 text-start text-sm input w-full shadow-md shadow-black/30"
-              id="regimen"
-            >
+              id="regimen">
               <option value="Noches">Régimen</option>
               <option value="DES">DES</option>
               <option value="MAP">MAP</option>
@@ -109,11 +121,9 @@ export default function AddProductAdminPage() {
               <option value="ALL">ALL</option>
             </select>
             <select
-              {...register("transporte", {required: true}) }
-
+              {...register("transporte", { required: true })}
               className="text-gray-400 text-start text-sm input w-full shadow-md shadow-black/30"
-              id="transporte"
-            >
+              id="transporte">
               <option value="Noches">Transporte</option>
               <option value="AEREOS">AEREOS</option>
               <option value="BUS_SEMICAMA">BUS SEMICAMA</option>
@@ -121,22 +131,18 @@ export default function AddProductAdminPage() {
               <option value="BUS_MIX">BUS MIX</option>
             </select>
             <select
-              {...register("periodo", {required: true}) }
-
+              {...register("periodo", { required: true })}
               className="text-gray-400 text-start text-sm input w-full shadow-md shadow-black/30"
-              id="periodo"
-            >
+              id="periodo">
               <option value="Noches">Período</option>
               <option value="VERANO_2025">VERANO 2025</option>
               <option value="SALIDAS_GRUPALES">SALIDAS GRUPALES</option>
               <option value="MARZO_2025">MARZO 2025</option>
             </select>
             <select
-              {...register("paquete", {required: true}) }
-
+              {...register("paquete", { required: true })}
               className="text-gray-400 text-start text-sm input w-full shadow-md shadow-black/30"
-              id="type_tansporte"
-            >
+              id="type_tansporte">
               <option value="paquete">Tipo de paquete</option>
               <option value="NACIONAL">NACIONAL</option>
               <option value="INTERNACIONAL">INTERNACIONAL</option>
@@ -145,32 +151,27 @@ export default function AddProductAdminPage() {
           <section className="flex flex-col justify-between w-2/6">
             <input
               placeholder="Subtitulo"
-              {...register("subtitulo", {required: true}) }
-
+              {...register("subtitulo", { required: true })}
               className="input shadow-md shadow-black/30 w-full"
               type="text"
             />
             <input
               placeholder="Descripción"
-              {...register("description", {required: true}) }
-
+              {...register("description", { required: true })}
               className="input shadow-md shadow-black/30 w-full"
               type="text"
             />
             <select
-              {...register("moneda", {required: true}) }
-
+              {...register("moneda", { required: true })}
               className="input shadow-md shadow-black/30 text-gray-400 w-40"
               name=""
-              id="moneda"
-            >
+              id="moneda">
               <option value="Moneda">Moneda</option>
               <option value="Pesos">Pesos</option>
               <option value="Dolares">Dolares</option>
             </select>
             <input
-              {...register("price", {required: true}) }
-
+              {...register("price", { required: true })}
               placeholder="Precio"
               className="input shadow-md shadow-black/30 w-40"
               type="text"
@@ -182,17 +183,25 @@ export default function AddProductAdminPage() {
             />
             <div className="flex gap-2">
               <input
-              {...register("price", {required: true}) }
-              type="checkbox" id="checkbox" />
-              
+                {...register("price", { required: true })}
+                type="checkbox"
+                id="checkbox"
+              />
+
               <p>Desde</p>
             </div>
           </section>
           <section>
             <input
-              {...register("img", {required: true}) }
-              type="file" name="" id="" />
-
+              onChange={handleFileChange}
+              // {...register("image", { required: true })}
+              type="file"
+            />
+            {image &&
+            <>
+            <img className="rounded-2xl mt-5 h-[450px] mx-auto" src={image} alt="Vista previa de la imagen" />
+            </>
+            }
           </section>
         </div>
 
@@ -202,8 +211,7 @@ export default function AddProductAdminPage() {
             <div className="flex items-center mb-5 flex-col gap-4">
               <p>Detalles del paquete</p>
               <input
-              {...register("hotel", {required: true}) }
-
+                {...register("hotel", { required: true })}
                 placeholder="Hotel"
                 className="input shadow-md shadow-black/30 w-96"
                 type="text"
@@ -212,15 +220,13 @@ export default function AddProductAdminPage() {
             <div className="flex items-center mb-5 flex-col gap-4">
               <p>Incluye</p>
               <input
-              {...register("incluye", {required: true}) }
-
+                {...register("incluye", { required: true })}
                 placeholder="Dia 1"
                 className="input shadow-md shadow-black/30 w-96"
                 type="text"
               />
               <input
-              {...register("incluye", {required: true}) }
-
+                {...register("incluye", { required: true })}
                 placeholder="Dia 2"
                 className="input shadow-md shadow-black/30 w-96"
                 type="text"
@@ -229,15 +235,13 @@ export default function AddProductAdminPage() {
             <div className="flex items-center mb-5 flex-col gap-4">
               <p>Observaciones</p>
               <input
-              {...register("observaciones", {required: true}) }
-
+                {...register("observaciones", { required: true })}
                 placeholder="Observacion 1"
                 className="input shadow-md shadow-black/30 w-96"
                 type="text"
               />
               <input
-              {...register("observaciones", {required: true}) }
-
+                {...register("observaciones", { required: true })}
                 placeholder="Observacion 2"
                 className="input shadow-md shadow-black/30 w-96"
                 type="text"
@@ -249,15 +253,13 @@ export default function AddProductAdminPage() {
             <div className="flex items-center mb-5 flex-col gap-4">
               <p>Itinerario</p>
               <input
-              {...register("itinerario", {required: true}) }
-
+                {...register("itinerario", { required: true })}
                 placeholder="Dia 1"
                 className="input shadow-md shadow-black/30 w-96"
                 type="text"
               />
               <input
-              {...register("itinerario", {required: true}) }
-
+                {...register("itinerario", { required: true })}
                 placeholder="Dia 2"
                 className="input shadow-md shadow-black/30 w-96"
                 type="text"
@@ -266,21 +268,21 @@ export default function AddProductAdminPage() {
             <div className="flex items-center mb-5 flex-col gap-4">
               <p>Tarifas</p>
               <input
-              {...register("tarifas", {required: true}) }
-
+                {...register("tarifas", { required: true })}
                 placeholder="Tarifa 1"
                 className="input shadow-md shadow-black/30 w-96"
                 type="text"
               />
               <input
-              {...register("tarifas", {required: true}) }
-
+                {...register("tarifas", { required: true })}
                 placeholder="Tarifa 2"
                 className="input shadow-md shadow-black/30 w-96"
                 type="text"
               />
             </div>
-            <button type="submit" className="bg-orangeMedium text-white font-bold py-2 rounded-lg">
+            <button
+              type="submit"
+              className="bg-orangeMedium text-white font-bold py-2 rounded-lg">
               Agregar producto
             </button>
           </div>
