@@ -47,10 +47,16 @@ export default function ProductsContextProvider ({ children }) {
     }
     function createProduct (product) {
         try  {
-            axios.post(`${baseURL}/create_product`, product);
+            axios.post(`${baseURL}/create_product`, product, {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
         toast.success('Producto creado con éxito');
     } catch (error) {
-        toast.error('Error al crear el producto');
+        if(response.status === 422){
+            toast.error('Error al crear el producto');
+        }
         console.error("Error al agregar producto:", error);
     }
 }
