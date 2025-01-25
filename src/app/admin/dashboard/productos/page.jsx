@@ -12,13 +12,13 @@ export default function ProductsAdminPage() {
         <p>Volver</p>
       </Link>
       <h1 className="text-center font-bold text-2xl">Productos</h1>
-      <div className="flex items-center my-10 gap-1 cursor-pointer">
+      <Link href="/admin/dashboard/productos/addproduct" className="flex items-center text-nowrap w-min my-10 gap-1 cursor-pointer">
         <Add width="60px"/>
-        <Link href="/admin/dashboard/productos/addproduct">
+        <p>
           Agregar producto
-        </Link>
-      </div>
-        <table className="min-w-full border border-gray-300 text-sm text-left">
+        </p>
+      </Link>
+        <table className="w-full border border-gray-300 text-sm text-left">
           <thead className="bg-gray-100">
             <tr>
               <th className="px-4 py-2 border-b border-gray-300">Destino</th>
@@ -53,6 +53,205 @@ export default function ProductsAdminPage() {
                 </button>
               </td>
             </tr>
+            <tr className="hover:bg-gray-50">
+              <td className="px-4 py-2 border-b border-gray-300">
+                Ruta 40 al Sur
+              </td>
+              <td className="px-4 py-2 border-b border-gray-300">Nacional</td>
+              <td className="px-4 py-2 border-b border-gray-300">
+                Salidas Grupales
+              </td>
+              <td className="px-4 py-2 border-b border-gray-300">24/1 - 8/2</td>
+              <td className="px-4 py-2 border-b border-gray-300 text-center">
+                <button className="px-2 py-1 bg-green-500 text-white rounded hover:bg-green-600">
+                  Modificar
+                </button>
+                <button className="px-2 py-1 bg-red-500 text-white rounded hover:bg-red-900 ml-2">
+                  Eliminar
+                </button>
+              </td>
+            </tr>
+            <tr className="hover:bg-gray-50">
+              <td className="px-4 py-2 border-b border-gray-300">
+                Ruta 40 al Sur
+              </td>
+              <td className="px-4 py-2 border-b border-gray-300">Nacional</td>
+              <td className="px-4 py-2 border-b border-gray-300">
+                Salidas Grupales
+              </td>
+              <td className="px-4 py-2 border-b border-gray-300">24/1 - 8/2</td>
+              <td className="px-4 py-2 border-b border-gray-300 text-center">
+                <button className="px-2 py-1 bg-green-500 text-white rounded hover:bg-green-600">
+                  Modificar
+                </button>
+                <button className="px-2 py-1 bg-red-500 text-white rounded hover:bg-red-900 ml-2">
+                  Eliminar
+                </button>
+              </td>
+            </tr>
+            <tr className="hover:bg-gray-50">
+              <td className="px-4 py-2 border-b border-gray-300">
+                Ruta 40 al Sur
+              </td>
+              <td className="px-4 py-2 border-b border-gray-300">Nacional</td>
+              <td className="px-4 py-2 border-b border-gray-300">
+                Salidas Grupales
+              </td>
+              <td className="px-4 py-2 border-b border-gray-300">24/1 - 8/2</td>
+              <td className="px-4 py-2 border-b border-gray-300 text-center">
+                <button className="px-2 py-1 bg-green-500 text-white rounded hover:bg-green-600">
+                  Modificar
+                </button>
+                <button className="px-2 py-1 bg-red-500 text-white rounded hover:bg-red-900 ml-2">
+                  Eliminar
+                </button>
+              </td>
+            </tr>
+            <tr className="hover:bg-gray-50">
+              <td className="px-4 py-2 border-b border-gray-300">
+                Ruta 40 al Sur
+              </td>
+              <td className="px-4 py-2 border-b border-gray-300">Nacional</td>
+              <td className="px-4 py-2 border-b border-gray-300">
+                Salidas Grupales
+              </td>
+              <td className="px-4 py-2 border-b border-gray-300">24/1 - 8/2</td>
+              <td className="px-4 py-2 border-b border-gray-300 text-center">
+                <button className="px-2 py-1 bg-green-500 text-white rounded hover:bg-green-600">
+                  Modificar
+                </button>
+                <button className="px-2 py-1 bg-red-500 text-white rounded hover:bg-red-900 ml-2">
+                  Eliminar
+                </button>
+              </td>
+            </tr>
+            <tr className="hover:bg-gray-50">
+              <td className="px-4 py-2 border-b border-gray-300">
+                Ruta 40 al Sur
+              </td>
+              <td className="px-4 py-2 border-b border-gray-300">Nacional</td>
+              <td className="px-4 py-2 border-b border-gray-300">
+                Salidas Grupales
+              </td>
+              <td className="px-4 py-2 border-b border-gray-300">24/1 - 8/2</td>
+              <td className="px-4 py-2 border-b border-gray-300 text-center">
+                <button className="px-2 py-1 bg-green-500 text-white rounded hover:bg-green-600">
+                  Modificar
+                </button>
+                <button className="px-2 py-1 bg-red-500 text-white rounded hover:bg-red-900 ml-2">
+                  Eliminar
+                </button>
+              </td>
+            </tr>
+            <tr className="hover:bg-gray-50">
+              <td className="px-4 py-2 border-b border-gray-300">
+                Ruta 40 al Sur
+              </td>
+              <td className="px-4 py-2 border-b border-gray-300">Nacional</td>
+              <td className="px-4 py-2 border-b border-gray-300">
+                Salidas Grupales
+              </td>
+              <td className="px-4 py-2 border-b border-gray-300">24/1 - 8/2</td>
+              <td className="px-4 py-2 border-b border-gray-300 text-center">
+                <button className="px-2 py-1 bg-green-500 text-white rounded hover:bg-green-600">
+                  Modificar
+                </button>
+                <button className="px-2 py-1 bg-red-500 text-white rounded hover:bg-red-900 ml-2">
+                  Eliminar
+                </button>
+              </td>
+            </tr>
+            <tr className="hover:bg-gray-50">
+              <td className="px-4 py-2 border-b border-gray-300">
+                Ruta 40 al Sur
+              </td>
+              <td className="px-4 py-2 border-b border-gray-300">Nacional</td>
+              <td className="px-4 py-2 border-b border-gray-300">
+                Salidas Grupales
+              </td>
+              <td className="px-4 py-2 border-b border-gray-300">24/1 - 8/2</td>
+              <td className="px-4 py-2 border-b border-gray-300 text-center">
+                <button className="px-2 py-1 bg-green-500 text-white rounded hover:bg-green-600">
+                  Modificar
+                </button>
+                <button className="px-2 py-1 bg-red-500 text-white rounded hover:bg-red-900 ml-2">
+                  Eliminar
+                </button>
+              </td>
+            </tr>
+            <tr className="hover:bg-gray-50">
+              <td className="px-4 py-2 border-b border-gray-300">
+                Ruta 40 al Sur
+              </td>
+              <td className="px-4 py-2 border-b border-gray-300">Nacional</td>
+              <td className="px-4 py-2 border-b border-gray-300">
+                Salidas Grupales
+              </td>
+              <td className="px-4 py-2 border-b border-gray-300">24/1 - 8/2</td>
+              <td className="px-4 py-2 border-b border-gray-300 text-center">
+                <button className="px-2 py-1 bg-green-500 text-white rounded hover:bg-green-600">
+                  Modificar
+                </button>
+                <button className="px-2 py-1 bg-red-500 text-white rounded hover:bg-red-900 ml-2">
+                  Eliminar
+                </button>
+              </td>
+            </tr>
+            <tr className="hover:bg-gray-50">
+              <td className="px-4 py-2 border-b border-gray-300">
+                Ruta 40 al Sur
+              </td>
+              <td className="px-4 py-2 border-b border-gray-300">Nacional</td>
+              <td className="px-4 py-2 border-b border-gray-300">
+                Salidas Grupales
+              </td>
+              <td className="px-4 py-2 border-b border-gray-300">24/1 - 8/2</td>
+              <td className="px-4 py-2 border-b border-gray-300 text-center">
+                <button className="px-2 py-1 bg-green-500 text-white rounded hover:bg-green-600">
+                  Modificar
+                </button>
+                <button className="px-2 py-1 bg-red-500 text-white rounded hover:bg-red-900 ml-2">
+                  Eliminar
+                </button>
+              </td>
+            </tr>
+            <tr className="hover:bg-gray-50">
+              <td className="px-4 py-2 border-b border-gray-300">
+                Ruta 40 al Sur
+              </td>
+              <td className="px-4 py-2 border-b border-gray-300">Nacional</td>
+              <td className="px-4 py-2 border-b border-gray-300">
+                Salidas Grupales
+              </td>
+              <td className="px-4 py-2 border-b border-gray-300">24/1 - 8/2</td>
+              <td className="px-4 py-2 border-b border-gray-300 text-center">
+                <button className="px-2 py-1 bg-green-500 text-white rounded hover:bg-green-600">
+                  Modificar
+                </button>
+                <button className="px-2 py-1 bg-red-500 text-white rounded hover:bg-red-900 ml-2">
+                  Eliminar
+                </button>
+              </td>
+            </tr>
+            <tr className="hover:bg-gray-50">
+              <td className="px-4 py-2 border-b border-gray-300">
+                Ruta 40 al Sur
+              </td>
+              <td className="px-4 py-2 border-b border-gray-300">Nacional</td>
+              <td className="px-4 py-2 border-b border-gray-300">
+                Salidas Grupales
+              </td>
+              <td className="px-4 py-2 border-b border-gray-300">24/1 - 8/2</td>
+              <td className="px-4 py-2 border-b border-gray-300 text-center">
+                <button className="px-2 py-1 bg-green-500 text-white rounded hover:bg-green-600">
+                  Modificar
+                </button>
+                <button className="px-2 py-1 bg-red-500 text-white rounded hover:bg-red-900 ml-2">
+                  Eliminar
+                </button>
+              </td>
+            </tr>
+
           </tbody>
         </table>
     </main>

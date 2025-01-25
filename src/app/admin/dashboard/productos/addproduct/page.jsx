@@ -20,7 +20,9 @@ export default function AddProductAdminPage() {
     const imageFile = e.target.files[0];
     const url = `https://api.imgbb.com/1/upload?key=95eacfe7e3c98a0752a1c18aa38942a7&image=${imageFile.name}`;
     const data = new FormData();
+    
     data.append("image", imageFile);
+    console.log(data);
 
     try {
       const response = await fetch(url, {
@@ -124,9 +126,9 @@ export default function AddProductAdminPage() {
               id="transporte">
               <option value="Noches">Transporte</option>
               <option value="AEREOS">AEREOS</option>
-              <option value="BUS_SEMICAMA">BUS SEMICAMA</option>
-              <option value="BUS_CAMA">BUS CAMA</option>
-              <option value="BUS_MIX">BUS MIX</option>
+              <option value="BUS SEMICAMA">BUS SEMICAMA</option>
+              <option value="BUS CAMA">BUS CAMA</option>
+              <option value="BUS MIX">BUS MIX</option>
             </select>
             <select
               {...register("periodo", { required: true })}
@@ -147,16 +149,16 @@ export default function AddProductAdminPage() {
             </select>
           </section>
           <section className="flex flex-col justify-between w-2/6">
-            <input
+            <textarea
               placeholder="Subtitulo"
               {...register("subtitulo", { required: true })}
-              className="input shadow-md shadow-black/30 w-full"
+              className="input shadow-md h-28 shadow-black/30 w-full"
               type="text"
             />
-            <input
+            <textarea
               placeholder="Descripción"
               {...register("descripcion", { required: true })}
-              className="input shadow-md shadow-black/30 w-full"
+              className="input shadow-md h-28 shadow-black/30 w-full"
               type="text"
             />
             <select
@@ -170,11 +172,11 @@ export default function AddProductAdminPage() {
               {...register("precio", { required: true })}
               placeholder="Precio"
               className="input shadow-md shadow-black/30 w-40"
-              type="number"
+              type="text"
             />
             <input
               placeholder="Precio adicional (opcional)"
-              {...register("adicional", { required: true })}
+              {...register("adicional", { required: false })}
 
               className="input shadow-md shadow-black/30 w-64"
               type="text"
@@ -192,7 +194,6 @@ export default function AddProductAdminPage() {
           <section>
             <input
               onChange={handleFileChange}
-              // {...register("img", { required: true })}
               type="file"
             />
             {image && (
@@ -209,42 +210,59 @@ export default function AddProductAdminPage() {
 
         <h2 className="font-bold px-20">Información detallada</h2>
         <section className="flex justify-around gap-20 w-full">
-          <div className="flex flex-col justify-center">
+          <div className="flex flex-col justify-between">
             <div className="flex items-center mb-5 flex-col gap-4">
               <p>Detalles del paquete</p>
               <input
-                {...register("hotel", { required: true })}
+                {...register("hotel", { required: false })}
                 placeholder="Hotel"
                 className="input shadow-md shadow-black/30 w-96"
                 type="text"
               />
             </div>
-            <div className="flex items-center mb-5 flex-col gap-4">
-              <p>Incluye</p>
+            <div className="flex items-center justify-between mb-5 flex-col gap-4">
+              <p className="mb-14">Incluye</p>
               <input
-                {...register("incluye", { required: true })}
-                placeholder="Dia 1"
+                {...register("incluye", { required: false })}
+                placeholder="Incluye 1"
                 className="input shadow-md shadow-black/30 w-96"
                 type="text"
               />
               <input
-                {...register("incluye", { required: true })}
-                placeholder="Dia 2"
+                {...register("incluye2", { required: false })}
+                placeholder="Incluye 2"
                 className="input shadow-md shadow-black/30 w-96"
                 type="text"
               />
+              <input
+                {...register("incluye3", { required: false })}
+                placeholder="Incluye 3"
+                className="input shadow-md shadow-black/30 w-96"
+                type="text"
+              /><input
+              {...register("incluye4", { required: false })}
+              placeholder="Incluye 4"
+              className="input shadow-md shadow-black/30 w-96"
+              type="text"
+            />
             </div>
             <div className="flex items-center mb-5 flex-col gap-4">
-              <p>Observaciones</p>
+              <p className="mb-14">Observaciones</p>
               <input
-                {...register("observaciones", { required: true })}
+                {...register("observaciones", { required: false })}
                 placeholder="Observacion 1"
                 className="input shadow-md shadow-black/30 w-96"
                 type="text"
               />
               <input
-                {...register("observaciones", { required: true })}
+                {...register("observaciones2", { required: false })}
                 placeholder="Observacion 2"
+                className="input shadow-md shadow-black/30 w-96"
+                type="text"
+              />
+              <input
+                {...register("observaciones3", { required: false })}
+                placeholder="Observacion 3"
                 className="input shadow-md shadow-black/30 w-96"
                 type="text"
               />
@@ -255,29 +273,84 @@ export default function AddProductAdminPage() {
             <div className="flex items-center mb-5 flex-col gap-4">
               <p>Itinerario</p>
               <input
-                {...register("itinerario", { required: true })}
+                {...register("itinerario", { required: false })}
                 placeholder="Dia 1"
                 className="input shadow-md shadow-black/30 w-96"
                 type="text"
               />
               <input
-                {...register("itinerario", { required: true })}
+                {...register("itinerario2", { required: false })}
                 placeholder="Dia 2"
                 className="input shadow-md shadow-black/30 w-96"
                 type="text"
               />
+              <input
+                {...register("itinerario3", { required: false })}
+                placeholder="Dia 3"
+                className="input shadow-md shadow-black/30 w-96"
+                type="text"
+              />
+              <input
+                {...register("itinerario4", { required: false })}
+                placeholder="Dia 4"
+                className="input shadow-md shadow-black/30 w-96"
+                type="text"
+              />
+              <input
+                {...register("itinerario5", { required: false })}
+                placeholder="Dia 5"
+                className="input shadow-md shadow-black/30 w-96"
+                type="text"
+              />
+              <input
+                {...register("itinerario6", { required: false })}
+                placeholder="Dia 6"
+                className="input shadow-md shadow-black/30 w-96"
+                type="text"
+              />
+              <input
+                {...register("itinerario7", { required: false })}
+                placeholder="Dia 7"
+                className="input shadow-md shadow-black/30 w-96"
+                type="text"
+              />
+              <input
+                {...register("itinerario8", { required: false })}
+                placeholder="Dia 8"
+                className="input shadow-md shadow-black/30 w-96"
+                type="text"
+              />
             </div>
+            
             <div className="flex items-center mb-5 flex-col gap-4">
               <p>Tarifas</p>
               <input
-                {...register("tarifas", { required: true })}
+                {...register("tarifas", { required: false })}
                 placeholder="Tarifa 1"
                 className="input shadow-md shadow-black/30 w-96"
                 type="text"
               />
               <input
-                {...register("tarifas", { required: true })}
+                {...register("tarifas2", { required: false })}
                 placeholder="Tarifa 2"
+                className="input shadow-md shadow-black/30 w-96"
+                type="text"
+              />
+              <input
+                {...register("tarifas3", { required: false })}
+                placeholder="Tarifa 3"
+                className="input shadow-md shadow-black/30 w-96"
+                type="text"
+              />
+              <input
+                {...register("tarifas4", { required: false })}
+                placeholder="Tarifa 4"
+                className="input shadow-md shadow-black/30 w-96"
+                type="text"
+              />
+              <input
+                {...register("tarifas5", { required: false })}
+                placeholder="Tarifa 5"
                 className="input shadow-md shadow-black/30 w-96"
                 type="text"
               />

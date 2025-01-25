@@ -1,7 +1,7 @@
 'use client'
 import AsesoriaIcon from './components/ui/icons/Asesoria'
 import MedicIcon from './components/ui/icons/Medic'
-import OpinionExample from './components/ui/icons/OpinionExample'
+import Opinions from './components/Opinions'
 import Checked from './components/ui/icons/Checked'
 
 import BoxsHome from './components/ui/BoxsHome'
@@ -78,35 +78,7 @@ export default function Home() {
       <BoxsHome />
     </section>
 
-    <section id="opinions" className='flex flex-col justify-center'>
-      <h4 className='text-3xl text-center mb-20'>ALGUNAS DE NUESTRAS RESEÑAS</h4>
-        <ul className='flex justify-center text-center flex-wrap'>
-          <li className='relative md:p-20 py-20 mx-5'>
-            <div className='absolute -top-7 md:left-[150px] left-[80px]'>
-            <OpinionExample />
-            </div>
-            <div className='flex justify-center items-center z-50 bg-opinionBg h-52 w-80'>
-              <p className='z-40 text-center px-10'>"bla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla bla"</p>
-            </div>
-          </li>
-          <li className='relative md:p-20 py-20 mx-5'>
-            <div className='absolute -top-7 md:left-[150px] left-[80px]'>
-            <OpinionExample />
-            </div>
-            <div className='flex justify-center items-center z-50 bg-opinionBg h-52 w-80'>
-              <p className='z-40 text-center px-10'>"bla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla bla"</p>
-            </div>
-          </li>
-          <li className='relative md:p-20 py-20 mx-5'>
-            <div className='absolute -top-7 md:left-[150px] left-[80px]'>
-            <OpinionExample />
-            </div>
-            <div className='flex justify-center items-center z-50 bg-opinionBg h-52 w-80'>
-              <p className='z-40 text-center px-10'>"bla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla bla"</p>
-            </div>
-          </li>
-        </ul>
-    </section>
+    <Opinions />
     </main>
     
   );

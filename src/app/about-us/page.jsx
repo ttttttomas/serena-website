@@ -16,7 +16,7 @@ function AboutUs(){
 
             </div>
             <div className="flex flex-col md:flex-row justify-center items-start md:items-center mx-5 gap-5">
-                <div className="font-normal text-2xl w-1/2 h-full">
+                <div className="font-normal text-2xl md:w-1/2 w-full h-full">
                     <p className="h-full text-center w-96 mx-auto">
                     Somos una empresa de viajes y turismo que esta en el mercado hace muchos años y  que destina todo su tiempo a satisfacer las necesidades y consultas de nuestros clientes, asegurándoles unas vacaciones de primera con nuestros productos.
                     </p>

@@ -9,29 +9,6 @@ export default function ProductsContextProvider ({ children }) {
 
     const [products, setProducts] = useState([]);
 
-    // const Products = [{
-    //     id : string,
-    //     destino : string,
-    //     date : [string],
-    //     days: number,
-    //     nights: number,
-    //     regimen: string,
-    //     transporte : string,
-    //     periodo : string,
-    //     paquete : string,
-    //     subtitulo : string,
-    //     descripcion : string,
-    //     moneda : string,
-    //     precio : number,
-    //     adicional : string,
-    //     img : string,
-    //     desde : boolean (true | false),
-    //     hotel: string,
-    //     incluye : [string],
-    //     observaciones : [string],
-    //     itinerario : [string],
-    //     tarifas : [string],
-    // }]
 
 
     const baseURL = "https://backend-serena-production.up.railway.app/products"
@@ -47,22 +24,23 @@ export default function ProductsContextProvider ({ children }) {
     }
     function createProduct (product) {
         try  {
-            axios.post(`${baseURL}/create_product`, product, {
+            axios.post(`${baseURL}/create_product`, JSON.stringify(product), {
                 headers: {
                     'Content-Type': 'application/json'
                 }
             });
         toast.success('Producto creado con éxito');
     } catch (error) {
-        if(response.status === 422){
-            toast.error('Error al crear el producto');
-        }
         console.error("Error al agregar producto:", error);
     }
 }
     function updateProduct (id, product) {
         return axios.put(`${baseURL}/${id}`, product);
     }      
+
+    function login (username,password) {
+        return axios.post(`${baseURL}/login`,({username, password}))
+    }
     
     return (
         <productsContext.Provider value={{ 
@@ -72,7 +50,8 @@ export default function ProductsContextProvider ({ children }) {
             getProductById, 
             deleteProduct, 
             createProduct, 
-            updateProduct 
+            updateProduct,
+            login 
             }}
         >
             {children}

@@ -1,31 +1,18 @@
 'use client'
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import './admin.css'
 import {useRouter} from 'next/navigation'
+import { productsContext } from '../context/ProductsContext';
 
 
 export default function AdminPage() {
-    const router = useRouter()
+    const {login} = useContext(productsContext)
     const [user, setUser] = useState("")
     const [pass, setPass] = useState("")
 
-    const handleChangeUser = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setUser(e.target.value)
-        console.log(user)
-    }
-    const handleChangePass = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setPass(e.target.value)
-        console.log(pass)
-    }
-
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault()
-        if(user === "admin" && pass === "serena11999"){
-            router.push("/admin/dashboard")
-        }
-        else(
-            alert("Usuario o contraseña incorrecta")
-        )
+        e.preventDefault();
+        login(user, pass)
     }
 
     return (
@@ -42,8 +29,8 @@ export default function AdminPage() {
                     </p>
                 </div>
                 <form onSubmit={handleSubmit} className='flex flex-col w-full gap-5 justify-center items-center'>
-                    <input onChange={handleChangeUser} value={user} placeholder='Usuario' className='px-5 py-2 shadow-sm w-full h-12 rounded-xl mx-20' type="text" />
-                    <input onChange={handleChangePass} value={pass} placeholder='Contraseña' className='px-5 py-2 shadow-sm w-full h-12 rounded-xl mx-20' type="text" />
+                    <input onChange={(e) => setUser(e.target.value)} value={user} placeholder='Usuario' className='px-5 py-2 shadow-sm w-full h-12 rounded-xl mx-20' type="text" />
+                    <input onChange={(e) => setPass(e.target.value)} value={pass} placeholder='Contraseña' className='px-5 py-2 shadow-sm w-full h-12 rounded-xl mx-20' type="text" />
                     <button className='text-center bg-orangeMedium shadow-xl text-white rounded-xl w-full mx-auto p-2'>Ingresar</button>
                 </form>
            </div>

@@ -20,8 +20,10 @@ export default function Nacionales() {
       }
       loadProducts()
 
+      if (products.precio_adicional === undefined){
+        products.precio_adicional = "0"
+      }
     }, [])
-    
     return (
       <main>
             <img 
