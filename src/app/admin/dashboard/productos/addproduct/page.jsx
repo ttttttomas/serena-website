@@ -1,20 +1,23 @@
 "use client";
 import "../../../dashboard/Dashboard.css";
-import { Separator } from "@/components/ui/separator";
+
 import { useForm } from "react-hook-form";
 import { useContext, useState } from "react";
 import { productsContext } from "@/app/context/ProductsContext";
 
+import { Separator } from "@/components/ui/separator";
+import Link from "next/link";
+
 import Add from "@components/ui/icons/Add";
 import Delete from "@components/ui/icons/Delete";
-
-import Link from "next/link";
 
 export default function AddProductAdminPage() {
   const [image, setImage] = useState([]);
   const { createProduct } = useContext(productsContext);
 
   const { register, handleSubmit, setValue } = useForm();
+
+  const [button, setButton] = useState(false);
 
   const handleFileChange = async (e) => {
     const imageFile = e.target.files[0];
@@ -69,16 +72,20 @@ export default function AddProductAdminPage() {
                 {...register("date", { required: true })}
                 type="date"
               />
+              <div onClick={() => setButton(true)}>
               <Add width="30px" />
+              </div>
             </div>
 
-            <div className="text-gray-400 flex gap-2 items-center justify-between">
+            <div className={button ? "text-gray-400 flex gap-2 items-center justify-between" : "hidden"}>
               <input
                 className="input shadow-md w-40 shadow-black/30"
                 type="date"
                 // {...register("date", {required: false}) }
               />
+              <div onClick={() => setButton(false)}>
               <Delete width="30px" />
+              </div>
             </div>
 
             <Separator />

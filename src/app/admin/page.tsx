@@ -3,17 +3,19 @@ import { useContext, useState } from 'react';
 import './admin.css'
 import {useRouter} from 'next/navigation'
 import { productsContext } from '../context/ProductsContext';
+import {useForm} from 'react-hook-form'
 
 
 export default function AdminPage() {
+    const {register, handleSubmit} = useForm()
     const {login} = useContext(productsContext)
-    const [user, setUser] = useState("")
-    const [pass, setPass] = useState("")
+    const [username, setUsername] = useState("")
+    const [password, setPassword] = useState("")
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        login(user, pass)
-    }
+    const onSubmit = handleSubmit(async data => {
+        console.log(data);
+        login(data)
+    })
 
     return (
         <section>
@@ -28,9 +30,9 @@ export default function AdminPage() {
                         Inicio de sesión
                     </p>
                 </div>
-                <form onSubmit={handleSubmit} className='flex flex-col w-full gap-5 justify-center items-center'>
-                    <input onChange={(e) => setUser(e.target.value)} value={user} placeholder='Usuario' className='px-5 py-2 shadow-sm w-full h-12 rounded-xl mx-20' type="text" />
-                    <input onChange={(e) => setPass(e.target.value)} value={pass} placeholder='Contraseña' className='px-5 py-2 shadow-sm w-full h-12 rounded-xl mx-20' type="text" />
+                <form onSubmit={onSubmit} className='flex flex-col w-full gap-5 justify-center items-center'>
+                    <input {...register("username")} onChange={(e) => setUsername(e.target.value)} placeholder='Usuario' className='px-5 py-2 shadow-sm w-full h-12 rounded-xl mx-20' type="text" />
+                    <input {...register("password")} onChange={(e) => setPassword(e.target.value)} placeholder='Contraseña' className='px-5 py-2 shadow-sm w-full h-12 rounded-xl mx-20' type="text" />
                     <button className='text-center bg-orangeMedium shadow-xl text-white rounded-xl w-full mx-auto p-2'>Ingresar</button>
                 </form>
            </div>

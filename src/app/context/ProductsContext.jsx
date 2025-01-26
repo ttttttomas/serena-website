@@ -12,6 +12,7 @@ export default function ProductsContextProvider ({ children }) {
 
 
     const baseURL = "https://backend-serena-production.up.railway.app/products"
+    const API_URL = "https://backend-serena-production.up.railway.app"
 
     function getProducts () {
         return axios.get(baseURL);
@@ -38,8 +39,17 @@ export default function ProductsContextProvider ({ children }) {
         return axios.put(`${baseURL}/${id}`, product);
     }      
 
-    function login (username,password) {
-        return axios.post(`${baseURL}/login`,({username, password}))
+    async function login (username, password) {
+        try {
+            const response = await axios.post(`${API_URL}/login`, ({username, password}), {
+              headers: {
+                "Content-Type": "application/json",
+              },
+            })
+            return response.data
+          } catch (error) {
+            console.log("Error al iniciar sesión:", error);
+          }
     }
     
     return (
