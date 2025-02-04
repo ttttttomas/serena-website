@@ -22,6 +22,7 @@ export default function AddProductAdminPage() {
 
   const [image, setImage] = useState([]);
   const [button, setButton] = useState(false);
+  const [loading, setLoading] = useState(true);
   
   const id = params.id;
   console.log(id);
@@ -31,6 +32,7 @@ export default function AddProductAdminPage() {
         if (id){
           console.log("cargando producto");
           const res = await getProductById(id);
+            setLoading(false);
           console.log(res);
             setValue("destino", res.data.destino);
             setValue("date", res.data.date);
@@ -107,6 +109,7 @@ export default function AddProductAdminPage() {
 
   return (
     <main className="flex flex-col mx-14 my-10 h-full">
+        {loading && <p className='text-center font-bold mb-3'>Cargando producto...</p>}
       <Link
         href="/admin/dashboard/productos"
         className="flex items-center gap-1 cursor-pointer">
