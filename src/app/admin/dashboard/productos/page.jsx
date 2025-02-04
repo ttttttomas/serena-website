@@ -4,14 +4,26 @@ import '../../dashboard/Dashboard.css'
 
 import Link from "next/link";
 import Add from "@components/ui/icons/Add";
-import { useContext,useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { productsContext } from "@/app/context/ProductsContext";
 import {useRouter} from 'next/navigation'
 
 
 export default function ProductsAdminPage() {
-  const { products, setProducts, getProducts, deleteProduct, updateProduct } = useContext(productsContext);
+  const { products, setProducts, getProducts, deleteProduct } = useContext(productsContext);
+  const [loading, setLoading] = useState(true);
   const router = useRouter()
+
+  useEffect(() => {
+      setProducts([])
+        const loadProducts = async () => {
+          const res = await getProducts();
+          await setProducts(res.data);
+          setLoading(false);
+        }
+        loadProducts()
+        
+      }, [])
 
   const handlePut = (id) => {
     router.push(`/admin/dashboard/productos/addproduct/${id}`)
@@ -25,15 +37,6 @@ export default function ProductsAdminPage() {
   }
 }
 
-  useEffect(() => {
-      setProducts([])
-        const loadProducts = async () => {
-          const res = await getProducts();
-          await setProducts(res.data);
-        }
-        loadProducts()
-  
-      }, [])
   
   return (
     <main className="flex flex-col mx-14 my-10">
@@ -51,7 +54,7 @@ export default function ProductsAdminPage() {
           Agregar producto
         </p>
       </Link>
-        <table className="w-full border border-gray-300 text-sm text-left">
+        {loading ? <h1 className='text-center font-bold my-3'>Cargando...</h1> : <table className="w-full border border-gray-300 text-sm text-left">
           <thead className="bg-gray-100">
             <tr>
               <th className="px-4 py-2 border-b border-gray-300">Destino</th>
@@ -94,7 +97,7 @@ export default function ProductsAdminPage() {
             </tr>
             ))}
           </tbody>
-        </table>
+        </table>}
     </main>
   );
 }
