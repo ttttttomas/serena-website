@@ -20,8 +20,10 @@ export default function ProductNationalPage() {
     };
 
     loadProduct();
-  }, [id, getProductById]); //
+  }, [id, getProductById]);
 
+    console.log(currentProduct);
+    
 
   return (
     <>
@@ -41,10 +43,12 @@ export default function ProductNationalPage() {
                 <a href="#tarifas">Tarifas</a>
                 <a href="#observaciones">Observaciones</a>
               </ul>
-              <h2 className="text-center text-orangeMedium font-bold text-xl tracking-wide mt-5">
-                {}
+              <h2 className="text-center text-orangeMedium font-bold text-2xl tracking-wide mt-5">
+                {currentProduct.destino}
               </h2>
-
+              <h3 className="text-center text-orangeMedium font-bold text-xl tracking-wide mt-5">
+                {currentProduct.subtitulo}
+              </h3>
               <div
                 id="detalles"
                 className="my-3 shadow-2xl rounded-3xl w-3/4 mx-auto">
@@ -52,7 +56,7 @@ export default function ProductNationalPage() {
                   Detalles del paquete
                 </p>
                 <ul className="flex flex-col gap-5 px-4 py-6 text-sm font-semibold">
-                  <li>{`${currentProduct.dias} dias ${currentProduct.noches} noches`}</li>
+                  <li>{`${currentProduct.days} dias ${currentProduct.nights} noches`}</li>
                   <li>{`Tipo de transporte: ${currentProduct.transporte}`}</li>
                   <li>{`Hotel: ${currentProduct.hotel}`}</li>
                   <li>{`Régimen: ${currentProduct.regimen}`}</li>
@@ -66,14 +70,14 @@ export default function ProductNationalPage() {
                   Itinerario
                 </p>
                 <ul className="flex flex-col gap-5 px-4 py-6 text-sm font-semibold">
-                  <li>Día 1:</li>
-                  <li>Día 2:</li>
-                  <li>Día 3:</li>
-                  <li>Día 4:</li>
-                  <li>Día 5:</li>
-                  <li>Día 6:</li>
-                  <li>Día 7:</li>
-                  <li>Día 8:</li>
+                  <li>Dia 1: {currentProduct.itinerario}</li>
+                  <li>Día 2: {currentProduct.itinerario2}</li>
+                  <li>Día 3: {currentProduct.itinerario3}</li>
+                  <li>Día 4: {currentProduct.itinerario4}</li>
+                  <li>Día 5: {currentProduct.itinerario5}</li>
+                  <li>Día 6: {currentProduct.itinerario6}</li>
+                  <li>Día 7: {currentProduct.itinerario7}</li>
+                  <li>Día 8: {currentProduct.itinerario8}</li>
                 </ul>
               </div>
 
@@ -84,14 +88,13 @@ export default function ProductNationalPage() {
                   Incluye
                 </p>
                 <ul className="flex flex-col gap-5 px-4 py-6 text-sm font-semibold">
-                  <li>Ticket aéreo ida y vuelta con Latam Airlines</li>
+                  <li>{`${currentProduct.incluye}`}</li>
                   <li>
-                    07 noches de alojamiento en Punta Cana, en el hotel
-                    Iberostar Waves Rose Hall Beach con All Inclusive.
+                  {`${currentProduct.incluye2}`}
                   </li>
-                  <li>Traslados IN/OUT en servicio regular.</li>
+                  <li>{`${currentProduct.incluye3}`}</li>
                   <li>
-                    Asistencia médica al viajero con Avril Infinity Protect 25.
+                  {`${currentProduct.incluye4}`}
                   </li>
                 </ul>
               </div>
@@ -103,14 +106,11 @@ export default function ProductNationalPage() {
                   Tarifas
                 </p>
                 <ul className="flex flex-col gap-5 px-4 pt-6 pb-8 text-sm font-semibold">
-                  <li>Single - U$D 2.658.- + U$D 320 Impuestos</li>
-                  <li>Doble - U$D 1.799.- + U$D 320 Impuestos</li>
-                  <li>Triple - U$D 1.669.- + U$D 320 Impuestos</li>
-                  <li>Child - U$D 1.201.- + U$D 600 Impuestos</li>
+                  <li>{`${currentProduct.tarifas}`}</li>
+                  <li>{`${currentProduct.tarifas2}`}</li>
+                  <li>{`${currentProduct.tarifas3}`}</li>
+                  <li>{`${currentProduct.tarifas4}`}</li>
                 </ul>
-                <span className="px-4 font-semibold">
-                  No incluye gastos administrativos.
-                </span>
               </div>
 
               <div
@@ -121,17 +121,13 @@ export default function ProductNationalPage() {
                 </p>
                 <ul className="flex flex-col px-4 pt-6 text-sm font-semibold">
                   <li>
-                    Tarifas expresadas en dolares americanos, sujetas a
-                    modificaciones sin previo aviso segun disponibilidad al
-                    momento de confirmar la reserva.
+                  {`${currentProduct.observaciones}`}
                   </li>
-                  <p className="mt-4">No incluye</p>
+                  <p className="mt-4">{`${currentProduct.observaciones2}`}</p>
                   <ul className="mt-2">
-                    <li>IVA 21%</li>
-                    <li>GASTOS ADMINISTRATIVOS 2.2%</li>
-                    <li>
-                      5% DE RETENCION POR PAGO EN EFECTIVO O DEPOSITO BANCARIO
-                    </li>
+                    <li>{`${currentProduct.observaciones3}`}</li>
+                    <li>{`${currentProduct.observaciones4}`}</li>
+                    <li>{`${currentProduct.observaciones5}`}</li>
                   </ul>
                 </ul>
               </div>
@@ -227,7 +223,7 @@ export default function ProductNationalPage() {
           </section>
         </main>
       ) : (
-        <div>Loading...</div>
+        <div className="text-center text-xl my-10 font-bold">Cargando...</div>
       )}
     </>
   );

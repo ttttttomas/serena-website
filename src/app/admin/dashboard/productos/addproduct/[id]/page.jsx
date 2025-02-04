@@ -1,5 +1,6 @@
-"use client";
-import "../../../dashboard/Dashboard.css";
+"use client"
+
+import '../../../../dashboard/Dashboard.css'
 
 import { useForm } from "react-hook-form";
 import { useContext, useState, useEffect } from "react";
@@ -10,12 +11,14 @@ import Link from "next/link";
 
 import Add from "@components/ui/icons/Add";
 import Delete from "@components/ui/icons/Delete";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 
 export default function AddProductAdminPage() {
-  const { createProduct, getProductById } = useContext(productsContext);
+  const { getProductById, updateProduct } = useContext(productsContext);
   const { register, handleSubmit, setValue } = useForm();
+
   const params = useParams();
+  const router = useRouter();
 
   const [image, setImage] = useState([]);
   const [button, setButton] = useState(false);
@@ -29,7 +32,44 @@ export default function AddProductAdminPage() {
           console.log("cargando producto");
           const res = await getProductById(id);
           console.log(res);
-          
+            setValue("destino", res.data.destino);
+            setValue("date", res.data.date);
+            setValue("date2", res.data.date2);
+            setValue("days", res.data.days);
+            setValue("nights", res.data.nights);
+            setValue("regimen", res.data.regimen);
+            setValue("transporte", res.data.transporte);
+            setValue("periodo", res.data.periodo);
+            setValue("paquete", res.data.paquete);
+            setValue("subtitulo", res.data.subtitulo);
+            setValue("descripcion", res.data.descripcion);
+            setValue("moneda", res.data.moneda);
+            setValue("precio", res.data.precio);
+            setValue("adicional", res.data.adicional);
+            setValue("desde", res.data.desde);
+            setValue("image", res.data.image);
+            setValue("hotel", res.data.hotel);
+            setValue("incluye", res.data.incluye);
+            setValue("incluye2", res.data.incluye2);
+            setValue("incluye3", res.data.incluye3);
+            setValue("incluye4", res.data.incluye4);
+            setValue("observaciones", res.data.observaciones);
+            setValue("observaciones2", res.data.observaciones2);
+            setValue("observaciones3", res.data.observaciones3);
+            setValue("itinerario", res.data.itinerario);
+            setValue("itinerario2", res.data.itinerario2);
+            setValue("itinerario3", res.data.itinerario3);
+            setValue("itinerario4", res.data.itinerario4);
+            setValue("itinerario5", res.data.itinerario5);
+            setValue("itinerario6", res.data.itinerario6);
+            setValue("itinerario7", res.data.itinerario7);
+            setValue("itinerario8", res.data.itinerario8);
+            setValue("tarifas", res.data.tarifas);
+            setValue("tarifas2", res.data.tarifas2);
+            setValue("tarifas3", res.data.tarifas3);
+            setValue("tarifas4", res.data.tarifas4);
+            setValue("tarifas5", res.data.tarifas5);
+            setValue("image", res.data.image);  
         }
   }
   loadProduct();
@@ -56,9 +96,13 @@ export default function AddProductAdminPage() {
       console.error(error);
     }
   };
-  const onSubmit = handleSubmit((data) => {
+  const onSubmit = handleSubmit(async (data) => {
+
+    if(id){
       console.log(data);
-      createProduct(data);
+     await updateProduct(id, data);
+     router.push("/admin/dashboard/productos");
+    }
   });
 
   return (
@@ -381,7 +425,7 @@ export default function AddProductAdminPage() {
             <button
               type="submit"
               className="bg-orangeMedium text-white font-bold py-2 rounded-lg">
-              Agregar producto
+              Modificar producto
             </button>
           </div>
         </section>

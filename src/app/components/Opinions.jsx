@@ -2,22 +2,8 @@
 import OpinionExample from './ui/icons/OpinionExample' 
 import { useEffect, useState } from 'react'
 
-export default async function Opinions() {
-      const [reviews, setReviews] = useState([]);
-      
-      const URL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/details/json?place_id=ChIJkzZrQC7GvJURt8irXd5FkfQ&fields=reviews&key=AIzaSyC7wfFthr3h58MVe70qkDTtYzxgKs03lmU"
+export default function Opinions() {
 
-      useEffect(() => {
-        const fetchReviews = async () => {
-            const response = await fetch(URL); // Cambia a tu endpoint backend
-            const data = await response.json();
-            console.log(data);
-            
-            setReviews(data);
-            console.log(reviews);
-        };
-        fetchReviews();
-    }, []);
   return (
     <section id="opinions" className='flex flex-col justify-center'>
       <h4 className='text-3xl text-center mb-20'>ALGUNAS DE NUESTRAS RESEÑAS</h4>
