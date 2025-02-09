@@ -30,10 +30,12 @@ export default function ProductsAdminPage() {
   }
 
   const handleDelete = (id) => {
-    window.confirm("¿Estás seguro de que deseas eliminar este producto?")
-    if(window.confirm) {
+    const response = window.confirm("¿Estás seguro de que deseas eliminar este producto?")
+    if(response) {
       deleteProduct(id)
-      router.refresh();
+      window.location.reload()
+  }else {
+    return
   }
 }
 

@@ -39,9 +39,9 @@ export default function ProductsContextProvider ({ children }) {
         return axios.put(`${baseURL}/${id}`, product);
     }      
 
-    async function login (username, password) {
+    function login (username, password) {
         try {
-            const response = await axios.post(`${API_URL}/login`, ({username, password}), {
+            const response = axios.post(`${API_URL}/login`,JSON.stringify(username,password), {
               headers: {
                 "Content-Type": "application/json",
               },

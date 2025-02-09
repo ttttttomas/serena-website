@@ -10,12 +10,13 @@ import Link from "next/link";
 
 import Add from "@components/ui/icons/Add";
 import Delete from "@components/ui/icons/Delete";
-import { useParams } from "next/navigation";
+import { useParams,useRouter } from "next/navigation";
 
 export default function AddProductAdminPage() {
   const { createProduct, getProductById } = useContext(productsContext);
   const { register, handleSubmit, setValue } = useForm();
   const params = useParams();
+  const router = useRouter();
 
   const [image, setImage] = useState([]);
   const [button, setButton] = useState(false);
@@ -59,6 +60,7 @@ export default function AddProductAdminPage() {
   const onSubmit = handleSubmit((data) => {
       console.log(data);
       createProduct(data);
+      router.push("/admin/dashboard/productos");
   });
 
   return (

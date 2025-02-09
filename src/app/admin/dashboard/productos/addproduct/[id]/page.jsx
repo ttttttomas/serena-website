@@ -14,19 +14,16 @@ import Delete from "@components/ui/icons/Delete";
 import { useParams, useRouter } from "next/navigation";
 
 export default function AddProductAdminPage() {
-  const { getProductById, updateProduct } = useContext(productsContext);
-  const { register, handleSubmit, setValue } = useForm();
+    const [image, setImage] = useState([]);
+    const [button, setButton] = useState(false);
+    const [loading, setLoading] = useState(true);
 
-  const params = useParams();
-  const router = useRouter();
+    const { getProductById, updateProduct } = useContext(productsContext);
+    const { register, handleSubmit, setValue } = useForm();
+    const params = useParams();
+    const router = useRouter();
 
-  const [image, setImage] = useState([]);
-  const [button, setButton] = useState(false);
-  const [loading, setLoading] = useState(true);
   
-  const id = params.id;
-  console.log(id);
-
   useEffect(() => { 
     async function loadProduct() {
         if (id){
@@ -76,6 +73,9 @@ export default function AddProductAdminPage() {
   }
   loadProduct();
 }, []);
+  const id = params.id;
+  console.log(id);
+
 
   const handleFileChange = async (e) => {
     const imageFile = e.target.files[0];
