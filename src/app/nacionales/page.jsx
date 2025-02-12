@@ -28,24 +28,24 @@ export default function Nacionales() {
 
     const productsWithDates = products.map((product) => {
         const meses = [
-            "Enero",
-            "Febrero",
-            "Marzo",
-            "Abril",
-            "Mayo",
-            "Junio",
-            "Julio",
-            "Agosto",
-            "Septiembre",
-            "Octubre",
-            "Noviembre",
-            "Diciembre",
+            "ENERO",
+            "FEBRERO",
+            "MARZO",
+            "ABRIL",
+            "MAYO",
+            "JUNIO",
+            "JULIO",
+            "AGOSTO",
+            "SEPTIEMBRE",
+            "OCTUBRE",
+            "NOVIEMBRE",
+            "DICIEMBRE",
         ];
         
           // Validar que las fechas existan
-        if (!product.date || !product.date2) {
-            console.warn("Producto con fechas inválidas:", product);
-            return { ...product, mes: null, dia: null, mes2: null, dia2: null };
+        if (!product.date2) {
+            console.warn("Producto con fecha 2 inválida:", product);
+            return { ...product, mes2: null, dia2: null };
         }
 
         const [year, month, day] = product.date.split("-");

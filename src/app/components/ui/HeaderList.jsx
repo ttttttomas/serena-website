@@ -40,14 +40,14 @@ export default function HeaderList() {
                         <Link className="text-nowrap" href="/internacionales">Paquetes Internacionales</Link>
                     </ul>
                 </div>
-                <div onMouseEnter={handleHoverSecond} href='/' className="cursor-pointer relative">
-                    <p>Pasajes</p>
-                    <ul onMouseLeave={handleLeaveSecond} className={listSecond}>
-                        <Link className="text-nowrap"  href="/bus">Pasajes en Bus</Link>
-                        <Separator />
-                        <Link className="text-nowrap" href="/aereos">Pasajes Aéreos</Link>
-                    </ul>
-                </div>
+            {/* <div onMouseEnter={handleHoverSecond} href='/' className="cursor-pointer relative">
+                <p>Pasajes</p>
+                <ul onMouseLeave={handleLeaveSecond} className={listSecond}>
+                    <Link className="text-nowrap"  href="/bus">Pasajes en Bus</Link>
+                    <Separator />
+                    <Link className="text-nowrap" href="/aereos">Pasajes Aéreos</Link>
+                </ul>
+            </div> */}
                 <Link href='/about-us' className="cursor-pointer">
                     ¿Quienes Somos?
                 </Link>

@@ -51,6 +51,22 @@ export default function ProductsContextProvider ({ children }) {
             console.log("Error al iniciar sesión:", error);
           }
     }
+
+    function contact (data) {
+        try  {
+            axios.post(`${API_URL}/send-email`, JSON.stringify(data), {
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+        toast.success('Formulario enviado con exito');
+    } catch (error) {
+        console.error("Error al enviar formulario:", error);
+        toast.error('Error al enviar formulario');
+
+    }
+    }
     
     return (
         <productsContext.Provider value={{ 
@@ -61,7 +77,8 @@ export default function ProductsContextProvider ({ children }) {
             deleteProduct, 
             createProduct, 
             updateProduct,
-            login 
+            login,
+            contact
             }}
         >
             {children}

@@ -47,11 +47,11 @@ export default function HeaderMobile() {
                     </ul>
 
 
-                <div className="my-2">
+                <div className="my-1">
                     <Separator />
                 </div>
 
-                <li onClick={() =>{setIsOpenPass(!isOpenPass)}} 
+                {/* <li onClick={() =>{setIsOpenPass(!isOpenPass)}} 
                     className="flex items-center justify-between cursor-pointer transition-all duration-400">
                     <p>Pasajes</p>
                     <div className={`${isOpenPass ? "rotate-180" : ""} cursor-pointer transition-all duration-200`}>
@@ -66,7 +66,7 @@ export default function HeaderMobile() {
                     </ul>
                 <div className="my-2">
                     <Separator />
-                </div>
+                </div> */}
                 <Link href="about-us">¿Quienes Somos?</Link>
                 <div className="my-2">
                     <Separator />
