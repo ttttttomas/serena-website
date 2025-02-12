@@ -60,7 +60,9 @@ export default function AddProductAdminPage() {
   const onSubmit = handleSubmit((data) => {
       console.log(data);
       createProduct(data);
-      router.push("/admin/dashboard/productos");
+      if(createProduct.res.status === 200){
+        router.push("/admin/dashboard/productos");
+      }
   });
 
   return (
