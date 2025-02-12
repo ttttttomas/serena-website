@@ -9,7 +9,7 @@ export default function ProductsContextProvider ({ children }) {
 
     const [products, setProducts] = useState([]);
 
-
+    const [user, setUser] = useState(false);
 
     const baseURL = "https://backend-serena-production.up.railway.app/products"
     const API_URL = "https://backend-serena-production.up.railway.app"
@@ -60,18 +60,24 @@ export default function ProductsContextProvider ({ children }) {
                 },
                 body: JSON.stringify(data)
             });
-        toast.success('Formulario enviado con exito');
     } catch (error) {
         console.error("Error al enviar formulario:", error);
         toast.error('Error al enviar formulario');
 
     }
     }
+
+    function handleLogout () {
+        setUser(false)
+    }
     
     return (
         <productsContext.Provider value={{ 
-            products, 
-            setProducts, 
+            products,
+            user, 
+            setProducts,
+            setUser,
+            handleLogout, 
             getProducts, 
             getProductById, 
             deleteProduct, 

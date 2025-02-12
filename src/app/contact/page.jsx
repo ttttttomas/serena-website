@@ -3,8 +3,7 @@
 import {useForm} from 'react-hook-form'
 import { useContext} from "react";
 import { productsContext } from "@/app/context/ProductsContext";
-
-
+import {toast} from "sonner"
 
 export default function Contacto() {
 
@@ -15,6 +14,9 @@ export default function Contacto() {
     const onSubmit = handleSubmit((data) => {
         console.log(data);
         contact(data);
+        window.location.reload();
+        toast.success('Formulario enviado con exito');
+
     });
 
     return (

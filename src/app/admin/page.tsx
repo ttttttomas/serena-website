@@ -4,17 +4,23 @@ import './admin.css'
 import {useRouter} from 'next/navigation'
 import { productsContext } from '../context/ProductsContext';
 import {useForm} from 'react-hook-form'
+import {toast} from 'sonner'
 
 
 export default function AdminPage() {
     const {register, handleSubmit} = useForm()
-    const {login} = useContext(productsContext)
+    const router = useRouter() 
+    const {login,setUser} = useContext(productsContext)
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
 
-    const onSubmit = handleSubmit (data => {
-        console.log(data);
-        login(data)
+    const onSubmit = handleSubmit (data => {        
+        if(data.username === "admin" && data.password === "serena11999"){
+            setUser(true)
+            router.push('/admin/dashboard')
+        }else{
+            toast.error('Usuario o contraseña incorrectos')
+        } 
     })
 
     return (
