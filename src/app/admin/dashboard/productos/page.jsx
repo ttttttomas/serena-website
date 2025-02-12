@@ -10,16 +10,20 @@ import {useRouter} from 'next/navigation'
 
 
 export default function ProductsAdminPage() {
-  const { products, setProducts, getProducts, deleteProduct } = useContext(productsContext);
+  const { products, setProducts, getProducts, deleteProduc,user,setUser } = useContext(productsContext);
   const [loading, setLoading] = useState(true);
   const router = useRouter()
 
   useEffect(() => {
       setProducts([])
         const loadProducts = async () => {
-          const res = await getProducts();
-          await setProducts(res.data);
-          setLoading(false);
+          if (user === false) {
+            router.push('/admin')
+          }else{
+            const res = await getProducts();
+            await setProducts(res.data);
+            setLoading(false);
+          }
         }
         loadProducts()
         
@@ -39,10 +43,11 @@ export default function ProductsAdminPage() {
   }
 }
 
-  
   return (
     <main className="flex flex-col mx-14 my-10">
-      <Link
+      {user ? (
+        <>
+        <Link
         href="/admin/dashboard"
         className="flex items-center gap-1 cursor-pointer"
       >
@@ -100,6 +105,8 @@ export default function ProductsAdminPage() {
             ))}
           </tbody>
         </table>}
+      </>) : 'Cargando...'}
+      
     </main>
   );
 }

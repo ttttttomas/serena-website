@@ -7,12 +7,13 @@ export const productsContext = createContext();
 
 export default function ProductsContextProvider ({ children }) {
 
+    const baseURL = "https://backend-serena-production.up.railway.app/products"
+    const API_URL = "https://backend-serena-production.up.railway.app"
+    
     const [products, setProducts] = useState([]);
 
     const [user, setUser] = useState(false);
 
-    const baseURL = "https://backend-serena-production.up.railway.app/products"
-    const API_URL = "https://backend-serena-production.up.railway.app"
 
     function getProducts () {
         return axios.get(baseURL);
