@@ -9,7 +9,6 @@ import { productsContext } from "@/app/context/ProductsContext";
 export default function Contacto() {
 
     const { contact } = useContext(productsContext);
-    console.log(contact)
 
     const {register, handleSubmit} = useForm();
 
