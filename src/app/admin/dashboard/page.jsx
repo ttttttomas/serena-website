@@ -6,8 +6,8 @@ import Admin4 from "@components/ui/icons/Admin-4";
 
 import { useRouter } from 'next/navigation'
 import { useContext } from 'react';
-import { productsContext } from '@/app/context/ProductsContext';
 
+import { productsContext } from '@/app/context/ProductsContext';
 
 import './Dashboard.css'
 
@@ -16,22 +16,22 @@ import { useEffect } from "react";
 
 export default function AdminDashboard() {
     const router = useRouter()
-    const { user, setUser, handleLogout } = useContext(productsContext)
+    const { user, handleLogout } = useContext(productsContext)
+    const userTrue = localStorage.getItem('user')
 
     useEffect(() => {
+        console.log(user, userTrue);
+        
         function isUserTrue () {
-            if (user === false) {
-                router.push('/admin')
+            if (user === true) {
+                router.push('/admin/dashboard')
             }else{
-                setTimeout(() => {
-                    router.push('/admin/dashboard')
-                }, 5000);
+                router.push('/admin')
             }
         }
         isUserTrue()
     }
     , [])
-
 
 return( <section className="">
     {user ? (<div className='bg-creamBg background gap-3 my-10 p-12 flex flex-col items-center justify-center border mx-auto w-[500px]'>  

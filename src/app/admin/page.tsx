@@ -10,7 +10,7 @@ import {toast} from 'sonner'
 export default function AdminPage() {
     const {register, handleSubmit} = useForm()
     const router = useRouter() 
-    const {login,setUser} = useContext(productsContext)
+    const {setUser} = useContext(productsContext)
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
 
@@ -18,9 +18,12 @@ export default function AdminPage() {
         if(data.username === "admin" && data.password === "serena11999"){
             setUser(true)
             router.push('/admin/dashboard')
+            const userTrue = localStorage.setItem('user', 'userTrue') 
+            console.log(userTrue);
         }else{
             toast.error('Usuario o contraseña incorrectos')
-        } 
+        }
+        
     })
 
     return (

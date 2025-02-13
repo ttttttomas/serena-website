@@ -10,14 +10,16 @@ import HeaderMobile from "../HeaderMobile";
 import Menu from "./icons/Menu";
 import Link from "next/link";
 
+import { useRouter } from 'next/navigation'
 import { useContext } from 'react';
 import { productsContext } from '@/app/context/ProductsContext';
 
 
 export default function Header() {
-
+    const router = useRouter()
     const { user } = useContext(productsContext)
-
+    const userTrue = localStorage.getItem('user')
+    console.log(userTrue, user);
 
 // MD ES DESKTOP
 
@@ -48,9 +50,12 @@ export default function Header() {
                          <Instagram />
                     </Link>
                 </ul>
-                {!user ? (<Link href="/admin" className="flex items-center justify-end gap-3 cursor-pointer hover:underline">
-                    <AdminIcon />
-                </Link>) : ''}
+                {!userTrue & !user ? (<Link href="/admin" className="flex items-center justify-end gap-3 cursor-pointer hover:underline">
+                    <AdminIcon text='Acceso' />
+                </Link>) : 
+                <Link href="/admin/dashboard" className="flex items-center justify-end gap-3 cursor-pointer hover:underline">
+                <AdminIcon text='Panel de sistema' />
+            </Link>}
             </div>
         </div>
 

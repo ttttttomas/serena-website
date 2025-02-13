@@ -10,11 +10,13 @@ import {useRouter} from 'next/navigation'
 
 
 export default function ProductsAdminPage() {
-  const { products, setProducts, getProducts, deleteProduc,user,setUser } = useContext(productsContext);
+  const { products, setProducts, getProducts, deleteProduct,user,setUser } = useContext(productsContext);
   const [loading, setLoading] = useState(true);
   const router = useRouter()
 
   useEffect(() => {
+    console.log(user);
+    
       setProducts([])
         const loadProducts = async () => {
           if (user === false) {
@@ -38,6 +40,7 @@ export default function ProductsAdminPage() {
     if(response) {
       deleteProduct(id)
       window.location.reload()
+      setUser(true)
   }else {
     return
   }

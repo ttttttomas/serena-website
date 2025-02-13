@@ -70,6 +70,7 @@ export default function ProductsContextProvider ({ children }) {
 
     function handleLogout () {
         setUser(false)
+        localStorage.removeItem('user')
     }
     
     return (
