@@ -18,25 +18,25 @@ export default function Home() {
       <h1 className="text-center mt-8 font-bold text-3xl tracking-wider">
         NUESTROS PRODUCTOS DESTACADOS
       </h1>
-      <div className="flex  flex-wrap justify-center gap-20 md:gap-48 mt-6 items-center">
+      <div className="flex flex-wrap justify-center gap-20 md:gap-48 mt-6 items-center">
         <img 
         src="./productos-inicio.png" 
-        className="min-w-64 h-72 object-cover rounded-xl shadow-md shadow-orangeLight" 
+        className="min-w-64 h-72 hover:scale-110 transition-all cursor-pointer object-cover rounded-xl shadow-md shadow-orangeLight" 
         alt="" 
         />
         <img 
         src="./productos-inicio.png" 
-        className="min-w-64 h-72 object-cover rounded-xl shadow-md shadow-orangeLight" 
+        className="min-w-64 h-72 hover:scale-110 transition-all cursor-pointer object-cover rounded-xl shadow-md shadow-orangeLight" 
         alt="" 
         />
         <img 
         src="./productos-inicio.png" 
-        className="min-w-64 h-72 object-cover rounded-xl shadow-md shadow-orangeLight" 
+        className="min-w-64 h-72 hover:scale-110 transition-all cursor-pointer object-cover rounded-xl shadow-md shadow-orangeLight" 
         alt="" 
         />
         <img 
         src="./productos-inicio.png" 
-        className="min-w-64 h-72 object-cover rounded-xl shadow-md shadow-orangeLight" 
+        className="min-w-64 h-72 hover:scale-110 transition-all cursor-pointer object-cover rounded-xl shadow-md shadow-orangeLight" 
         alt="" 
         />
       </div>

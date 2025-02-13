@@ -59,8 +59,8 @@ export default function Footer() {
                 <div className="flex flex-col items-center md:items-end gap-5 py-10 px-5 md:rounded-bl-[110px] bg-creamBg" id="contacto">
                 <div className="flex items-center gap-x-3">
                         <div className="flex flex-col">
-                        <p className="text-xs md:text-sm">+54 11-5405-3025</p>
-                        <p className="text-xs md:text-sm text-end">+54 11-6375-9997</p>
+                        <Link target="_blank" href='https://wa.me/1154053025/?text=Hola! Vengo desde la web, queria mas informacion acerca de:' className="text-xs md:text-sm">+54 11-5405-3025</Link>
+                        <Link target="_blank" href='https://wa.me/1163759997/?text=Hola! Vengo desde la web, queria mas informacion acerca de:' className="text-xs md:text-sm text-end">+54 11-6375-9997</Link>
                         </div>
                          <Whatsapp />
                     </div>
