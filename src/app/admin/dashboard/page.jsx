@@ -17,9 +17,9 @@ import { useEffect } from "react";
 export default function AdminDashboard() {
     const router = useRouter()
     const { user, handleLogout } = useContext(productsContext)
-    const userTrue = localStorage.getItem('user')
-
+    
     useEffect(() => {
+        const userTrue = localStorage.getItem('user')
         console.log(user, userTrue);
         
         function isUserTrue () {

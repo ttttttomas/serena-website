@@ -11,15 +11,19 @@ import Menu from "./icons/Menu";
 import Link from "next/link";
 
 import { useRouter } from 'next/navigation'
-import { useContext } from 'react';
+import { useContext, useState,useEffect } from 'react';
 import { productsContext } from '@/app/context/ProductsContext';
 
 
 export default function Header() {
     const router = useRouter()
     const { user } = useContext(productsContext)
-    const userTrue = localStorage.getItem('user')
-    console.log(userTrue, user);
+    const [userTrue, setUserTrue] = useState(null);
+
+    useEffect(() => {
+      const storedUser = localStorage.getItem("user");
+      setUserTrue(storedUser);
+    }, []);
 
 // MD ES DESKTOP
 
