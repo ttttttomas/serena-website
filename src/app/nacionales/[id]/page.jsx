@@ -3,6 +3,7 @@
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import { productsContext } from "@/app/context/ProductsContext";
+import WhatsappForm from '../../components/WhatsappForm'
 
 export default function ProductNationalPage() {
   const { getProductById } = useContext(productsContext); // Solo usamos el método para obtener el producto
@@ -34,7 +35,7 @@ export default function ProductNationalPage() {
             alt="background-section"
             className="w-full h-[400px] object-cover mt-1"
           />
-          <section className="flex md:flex-row flex-col">
+          <section className="flex lg:flex-row flex-col">
             <div className="w-full mb-10">
               <ul className="flex bg-creamBg py-4 md:gap-32 text-sm md:text-base gap-3 justify-center font-semibold px-8 text-center">
                 <a href="#detalles">Detalles</a>
@@ -133,64 +134,15 @@ export default function ProductNationalPage() {
               </div>
             </div>
 
-            <div className="md:w-1/4 flex md:mx-0 mx-5 flex-col items-center">
+            <div className="md:w-full lg:w-1/4 flex flex-col items-center">
               <div className="bg-creamBg w-full text-center pb-8 rounded-3xl md:rounded-none md:rounded-bl-3xl">
                 <h4 className="text-center font-bold pt-5 text-lg">
                   ¿Te gustaría reservar?
                 </h4>
-                <span className="text-xs">
+                <span className="text-sm">
                   Rellena este formulario para consultar disponibilidad.
                 </span>
-                <form
-                  className="flex flex-col mt-6 gap-4 justify-center items-center"
-                  action="">
-                  <input
-                    placeholder="Nombre"
-                    className="w-64 p-2 shadow-lg rounded-lg"
-                    required
-                    type="text"
-                  />
-                  <input
-                    placeholder="Apellido"
-                    className="w-64 p-2 shadow-lg rounded-lg"
-                    required
-                    type="text"
-                  />
-                  <input
-                    placeholder="DNI"
-                    className="w-64 p-2 shadow-lg rounded-lg"
-                    required
-                    type="text"
-                  />
-                  <input
-                    className="w-64 p-2 shadow-lg rounded-lg"
-                    required
-                    type="date"
-                  />
-                  <input
-                    placeholder="Cantidad de pasajeros"
-                    className="w-64 p-2 shadow-lg rounded-lg"
-                    required
-                    type="number"
-                  />
-                  <input
-                    placeholder="Teléfono"
-                    className="w-64 p-2 shadow-lg rounded-lg"
-                    required
-                    type="text"
-                  />
-                  <input
-                    placeholder="Correo electrónico"
-                    className="w-64 p-2 shadow-lg rounded-lg"
-                    required
-                    type="email"
-                  />
-                  <button
-                    type="submit"
-                    className="bg-orange-500 text-white w-64 rounded-lg py-2">
-                    Enviar
-                  </button>
-                </form>
+                <WhatsappForm />
               </div>
               <div className="flex flex-col gap-3 mt-5 rounded-3xl md:rounded-none md:rounded-l-3xl w-full bg-creamBg">
                 <p className="font-bold text-center pt-5 text-xl">
@@ -205,11 +157,11 @@ export default function ProductNationalPage() {
                   </li>
                 </ul>
               </div>
-              <div className="flex flex-col gap-3 mt-5 rounded-3xl mb-10 md:rounded-none md:rounded-l-3xl bg-creamBg items-center">
-                <p className="font-bold text-center pt-5 text-xl">
+              <div className="flex flex-col gap-3 px-8 mt-5 rounded-3xl w-full mb-10 md:rounded-none md:rounded-l-3xl bg-creamBg items-start">
+                <p className="font-bold text-center mx-auto pt-5 text-xl">
                   ¿Tenes alguna duda?
                 </p>
-                <span className=" text-center">
+                <span className="text-center">
                   No dudes en comunicarte con nosotros por cualquier consulta
                   que tengas
                 </span>
