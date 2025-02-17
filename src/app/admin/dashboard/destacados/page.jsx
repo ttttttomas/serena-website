@@ -1,30 +1,23 @@
 'use client'
 import Link from "next/link";
-import { useState } from "react";
+import axios from 'axios'
+import { useState, useContext,useEffect } from "react";
 
 
-const destacadosIniciales = [
-  { id: 1, imagen: "/destacado.png", titulo: "FSL DE OCTUBRE" },
-  { id: 2, imagen: "/destacado.png", titulo: "FSL DE OCTUBRE" },
-  { id: 3, imagen: "/destacado.png", titulo: "FSL DE OCTUBRE" },
-  { id: 4, imagen: "/destacado.png", titulo: "FSL DE OCTUBRE" },
-];
 
 export default function Destacados() {
-  const [destacados, setDestacados] = useState(destacadosIniciales);
+  const [destacados, setDestacados] = useState([]);
 
-  const eliminarDestacado = (id) => {
-    setDestacados(destacados.filter((item) => item.id !== id));
-  };
-
-  const agregarDestacado = () => {
-    const nuevo = {
-      id: Date.now(),
-      imagen: "/destacado.png",
-      titulo: "Nuevo Destacado",
-    };
-    setDestacados([...destacados, nuevo]);
-  };
+  
+  useEffect(() => {
+      const loadProducts = async () => {
+        const res = await axios.get('https://backend-serena-production.up.railway.app/destacados')
+        console.log(res.data);
+        setDestacados(res.data)
+      }
+      loadProducts()
+    }, [])
+  
 
   return (
     
@@ -41,8 +34,8 @@ export default function Destacados() {
 
       <div className="mt-4 mx-auto w-1/2 space-y-4">
         {destacados.map((item) => (
-          <div key={item.id} className="flex items-center gap-4 border p-2 rounded-lg">
-            <img src={item.imagen} alt={item.titulo} className="w-16 h-16 rounded-lg" />
+          <div key={item.ID} className="flex items-center gap-4 border p-2 rounded-lg">
+            <img src={item.image} alt={item.id} className="w-16 h-16 rounded-lg" />
             <div className="flex-1">
               <p className="font-semibold">{item.titulo}</p>
             </div>
@@ -51,16 +44,16 @@ export default function Destacados() {
             </button>
             <button
               className="text-red-600 flex items-center gap-1"
-              onClick={() => eliminarDestacado(item.id)}
+              
             >
                Eliminar
             </button>
           </div>
         ))}
       <div className="mt-4 text-center">
-        <button onClick={agregarDestacado} className="bg-orange-500 text-white flex items-center gap-2">
+        <Link href='/admin/dashboard/destacados/destacadoadd' className="bg-orange-500 text-white flex items-center gap-2">
           ➕ Agregar
-        </button>
+        </Link>
       </div>
 
       </div>

@@ -72,7 +72,47 @@ export default function ProductsContextProvider ({ children }) {
         setUser(false)
         localStorage.removeItem('user')
     }
+
+    function getDestacados () {
+        return axios.get('https://backend-serena-production.up.railway.app/destacados');
+
+    }
+
+    function createDestacado (product) {
+        try  {
+            axios.post(`${API_URL}/create_feature`, JSON.stringify(product), {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+        toast.success('Producto creado con éxito');
+    } catch (error) {
+        console.error("Error al agregar producto:", error);
+    }
+    }
     
+    function getCartelera () {
+        return axios.get('https://backend-serena-production.up.railway.app/cartelera')
+    }
+
+    function createCartelera (product) {
+        try  {
+            axios.post(`${API_URL}/create_flyer`, JSON.stringify(product), {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+        toast.success('Producto creado con éxito');
+    } catch (error) {
+        console.error("Error al agregar producto:", error);
+    }
+    }
+
+    function deleteCartelera (id) {
+        return axios.delete(`${API_URL}/flyers/${id}`);
+
+    }
+
     return (
         <productsContext.Provider value={{ 
             products,
@@ -80,10 +120,15 @@ export default function ProductsContextProvider ({ children }) {
             setProducts,
             setUser,
             handleLogout, 
-            getProducts, 
+            getProducts,
+            getDestacados,
+            getCartelera, 
             getProductById, 
-            deleteProduct, 
-            createProduct, 
+            deleteProduct,
+            deleteCartelera, 
+            createProduct,
+            createCartelera,
+            createDestacado,
             updateProduct,
             login,
             contact

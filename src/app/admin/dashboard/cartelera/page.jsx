@@ -1,30 +1,25 @@
 "use client";
 import Link from "next/link";
-import { useState } from "react";
+import axios from "axios";
+import { useRouter } from "next/navigation";
 
-
-const cartelesIniciales = [
-  { id: 1, descripcion: "MZA VERANO RUTA", periodo: "Verano 2025", imagen: "/cartel1.png" },
-  { id: 2, descripcion: "VH VERANO RUTA", periodo: "Verano 2025", imagen: "/cartel2.png" },
-  { id: 3, descripcion: "LSR VERANO RUTA", periodo: "Verano 2025", imagen: "/cartel3.png" },
-];
+import { useEffect, useState } from "react";
 
 export default function Cartelera() {
-  const [carteles, setCarteles] = useState(cartelesIniciales);
+  const router = useRouter()
+  const [carteles, setCarteles] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const eliminarCartel = (id) => {
-    setCarteles(carteles.filter((item) => item.id !== id));
-  };
 
-  const agregarCartel = () => {
-    const nuevo = {
-      id: Date.now(),
-      descripcion: "Nuevo Cartel",
-      periodo: "Verano 2025",
-      imagen: "/nuevo-cartel.png",
-    };
-    setCarteles([...carteles, nuevo]);
-  };
+  useEffect(() => {
+      const loadProducts = async () => {
+        const res = await axios.get('https://backend-serena-production.up.railway.app/cartelera')
+        console.log(res.data);
+        setCarteles(res.data)
+        setLoading(false)
+      }
+      loadProducts()
+    }, [])
 
   return (
     <div className="p-4 mx-auto">
@@ -37,9 +32,11 @@ export default function Cartelera() {
       </Link>      
       <h2 className="text-center font-bold text-lg">Cartelera</h2>
       <div className="w-1/2 mx-auto my-4">
-        <button onClick={agregarCartel} className="bg-orange-500 text-white flex items-center gap-2">
+        <Link
+        href='/admin/dashboard/cartelera/addcartelera'
+        className="bg-orange-500 text-white flex items-center gap-2">
           ➕ Agregar Cartel
-        </button>
+        </Link>
       </div>
       <p className="text-green-600 text-center">Carteles subidos ✅</p>
 
@@ -54,17 +51,18 @@ export default function Cartelera() {
         </thead>
         <tbody>
           {carteles.map((item) => (
-            <tr key={item.id} className="border-t">
+            <tr key={item.ID} className="border-t">
               <td className="p-2">{item.descripcion}</td>
               <td className="p-2">{item.periodo}</td>
-              <td className="p-2"><img src={item.imagen} alt={item.descripcion} className="w-16 h-16" /></td>
+              <td className="p-2"><img src={item.image} alt={item.descripcion} className="w-16 h-16" /></td>
               <td className="p-2 flex gap-2">
-                <button className="text-green-600 flex items-center gap-1">
+                <button
+                onClick={() => router.push(`/admin/dashboard/cartelera/${item.ID}`)}
+                className="text-green-600 flex items-center gap-1">
                 Modificar
                 </button>
                 <button
                   className="text-red-600 flex items-center gap-1"
-                  onClick={() => eliminarCartel(item.id)}
                 >
                 Eliminar
                 </button>
