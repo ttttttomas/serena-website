@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function Cartelera() {
+  
   const router = useRouter()
   const [carteles, setCarteles] = useState([]);
   const [loading, setLoading] = useState(true);
