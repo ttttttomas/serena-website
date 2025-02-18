@@ -3,15 +3,22 @@ import Link from "next/link";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { productsContext } from "@/app/context/ProductsContext";
 
 export default function Cartelera() {
-  
+ const {deleteCartelera} = useContext(productsContext)
+
   const router = useRouter()
   const [carteles, setCarteles] = useState([]);
   const [loading, setLoading] = useState(true);
 
-
+  const deleteProduct = (id) => {
+    const res = window.confirm('Seguro quieres eliminar?')
+    if (res) {
+      deleteCartelera(id)
+    }
+  }
   useEffect(() => {
       const loadProducts = async () => {
         const res = await axios.get('https://backend-serena-production.up.railway.app/cartelera')
@@ -35,11 +42,11 @@ export default function Cartelera() {
       <div className="w-1/2 mx-auto my-4">
         <Link
         href='/admin/dashboard/cartelera/addcartelera'
-        className="bg-orange-500 text-white flex items-center gap-2">
-          ➕ Agregar Cartel
+        className="bg-orange-500 text-white w-min text-nowrap p-3 rounded-xl   flex items-center gap-2">
+          Agregar Cartel
         </Link>
       </div>
-      <p className="text-green-600 text-center">Carteles subidos ✅</p>
+      <p className="text-orangeMedium text-center">Carteles subidos</p>
 
       <table className="border mx-auto mt-4">
         <thead>
@@ -63,6 +70,7 @@ export default function Cartelera() {
                 Modificar
                 </button>
                 <button
+                onClick={() => deleteProduct(item.ID)}
                   className="text-red-600 flex items-center gap-1"
                 >
                 Eliminar

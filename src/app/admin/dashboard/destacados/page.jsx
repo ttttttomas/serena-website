@@ -1,13 +1,13 @@
 'use client'
 import Link from "next/link";
 import axios from 'axios'
-import { useState, useContext,useEffect } from "react";
-
+import { useState, useEffect, useContext } from "react";
+import { productsContext } from "@/app/context/ProductsContext";
 
 
 export default function Destacados() {
   const [destacados, setDestacados] = useState([]);
-
+  const {deleteDestacado} = useContext(productsContext)
   
   useEffect(() => {
       const loadProducts = async () => {
@@ -18,6 +18,12 @@ export default function Destacados() {
       loadProducts()
     }, [])
   
+    const deleteProduct = (id) => {
+      const res = window.confirm('Seguro quieres eliminar?')
+      if (res) {
+        deleteDestacado(id)
+      }
+    }
 
   return (
     
@@ -30,20 +36,18 @@ export default function Destacados() {
         <p>Volver</p>
       </Link>
       <h2 className="text-center font-bold text-lg">Destacados página de inicio</h2>
-      <p className="text-center text-green-600">Destacados subidos ✅</p>
+      <p className="text-center text-orangeMedium">Destacados subidos </p>
 
       <div className="mt-4 mx-auto w-1/2 space-y-4">
         {destacados.map((item) => (
-          <div key={item.ID} className="flex items-center gap-4 border p-2 rounded-lg">
-            <img src={item.image} alt={item.id} className="w-16 h-16 rounded-lg" />
+          <div key={item.ID} className="flex items-center gap-4 p-2 rounded-lg">
+            <img src={item.image} alt={item.ID} className="size-72 rounded-lg" />
             <div className="flex-1">
               <p className="font-semibold">{item.titulo}</p>
             </div>
-            <button className="text-green-600 flex items-center gap-1">
-               Modificar
-            </button>
             <button
-              className="text-red-600 flex items-center gap-1"
+            onClick={() => deleteProduct(item.ID)}
+              className="text-white bg-orangeMedium p-3 rounded-xl flex items-center gap-1"
               
             >
                Eliminar
@@ -51,8 +55,8 @@ export default function Destacados() {
           </div>
         ))}
       <div className="mt-4 text-center">
-        <Link href='/admin/dashboard/destacados/destacadoadd' className="bg-orange-500 text-white flex items-center gap-2">
-          ➕ Agregar
+        <Link href='/admin/dashboard/destacados/destacadoadd' className="bg-orange-500 w-min mx-auto text-nowrap p-3 rounded-xl text-white flex items-center gap-2">
+        Agregar destacado
         </Link>
       </div>
 
