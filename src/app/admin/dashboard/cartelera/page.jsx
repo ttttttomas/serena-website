@@ -5,6 +5,8 @@ import { useRouter } from "next/navigation";
 
 import { useContext, useEffect, useState } from "react";
 import { productsContext } from "@/app/context/ProductsContext";
+import Loading from "@app/loading";
+
 
 export default function Cartelera() {
  const {deleteCartelera} = useContext(productsContext)
@@ -48,7 +50,7 @@ export default function Cartelera() {
       </div>
       <p className="text-orangeMedium text-center">Carteles subidos</p>
 
-      <table className="border mx-auto mt-4">
+      {carteles.length === 0 ? <Loading /> : <table className="border mx-auto mt-4">
         <thead>
           <tr className="bg-gray-200">
             <th className="p-2">Descripción</th>
@@ -62,16 +64,16 @@ export default function Cartelera() {
             <tr key={item.ID} className="border-t">
               <td className="p-2">{item.descripcion}</td>
               <td className="p-2">{item.periodo}</td>
-              <td className="p-2"><img src={item.image} alt={item.descripcion} className="w-16 h-16" /></td>
-              <td className="p-2 flex gap-2">
+              <td className="p-2"><img src={item.image} alt={item.descripcion} className="w-16 h-16 mx-auto rounded-lg" /></td>
+              <td className="p-2 flex justify-center my-auto items-center gap-5">
                 <button
                 onClick={() => router.push(`/admin/dashboard/cartelera/${item.ID}`)}
-                className="text-green-600 flex items-center gap-1">
+                className="text-green-600 mt-5">
                 Modificar
                 </button>
                 <button
                 onClick={() => deleteProduct(item.ID)}
-                  className="text-red-600 flex items-center gap-1"
+                  className="text-red-600 mt-5"
                 >
                 Eliminar
                 </button>
@@ -79,7 +81,7 @@ export default function Cartelera() {
             </tr>
           ))}
         </tbody>
-      </table>
+      </table>}
     </div>
   );
 }

@@ -7,7 +7,7 @@ import Add from "@components/ui/icons/Add";
 import { useContext, useEffect, useState } from "react";
 import { productsContext } from "@/app/context/ProductsContext";
 import {useRouter} from 'next/navigation'
-
+import Loading from "@app/loading";
 
 export default function ProductsAdminPage() {
   const { products, setProducts, getProducts, deleteProduct,user,setUser } = useContext(productsContext);
@@ -64,7 +64,7 @@ export default function ProductsAdminPage() {
           Agregar producto
         </p>
       </Link>
-        {loading ? <h1 className='text-center font-bold my-3'>Cargando...</h1> : <table className="w-full border border-gray-300 text-sm text-left">
+        {loading ? <Loading/> : <table className="w-full border border-gray-300 text-sm text-left">
           <thead className="bg-gray-100">
             <tr>
               <th className="px-4 py-2 border-b border-gray-300">Destino</th>

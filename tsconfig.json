@@ -26,12 +26,15 @@
 		"@layout/*" : [
 			"src/app/layouts/*"
 		],
+    "@app/*" : [
+			"src/app/*"
+		],
 		"@lib/*" : [
 			"src/app/lib/*"
 		],
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "next.config.mjs", "src/app/admin/inicio/page.jsx", "src/app/admin/dashboard/destacados/page.jsx", "src/app/admin/destacados/page.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "next.config.mjs", "src/app/admin/inicio/page.jsx", "src/app/admin/dashboard/destacados/page.jsx", "src/app/admin/destacados/page.jsx", "src/app/cartelera/page.jsx"],
   "exclude": ["node_modules"]
 }

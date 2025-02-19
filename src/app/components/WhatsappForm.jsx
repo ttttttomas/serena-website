@@ -7,7 +7,6 @@ export default function ReservaForm() {
       defaultValues: {
         pasajeros: [{ nombre: "", apellido: "", dni: "" }],
         fechaSalida: "",
-        fechaVuelta: "",
       },
     });
   
@@ -51,9 +50,6 @@ export default function ReservaForm() {
   
         <label className="block text-black">📅 Fecha de salida</label>
         <input {...register("fechaSalida")} type="date" className="p-2 text-black border rounded w-full" required />
-  
-        <label className="block text-black">📅 Fecha de vuelta</label>
-        <input {...register("fechaVuelta")} type="date" className="p-2 text-black border rounded w-full" required />
   
         <input {...register("telefono")} type="tel" placeholder="Teléfono" className="p-2 text-black border rounded w-full" required />
         <input {...register("email")} type="email" placeholder="Correo electrónico" className="p-2 text-black border rounded w-full" required />

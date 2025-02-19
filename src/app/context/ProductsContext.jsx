@@ -14,7 +14,6 @@ export default function ProductsContextProvider ({ children }) {
 
     const [user, setUser] = useState(false);
 
-
     function getProducts () {
         return axios.get(baseURL);
     }
@@ -37,7 +36,13 @@ export default function ProductsContextProvider ({ children }) {
     }
 }
     function updateProduct (id, product) {
-        return axios.put(`${baseURL}/${id}`, product);
+        try {
+            axios.put(`${baseURL}/${id}`, product);
+            toast.success('Producto modificado con éxito');  
+        } catch (error) {
+            console.error("Error al modificar producto:", error);
+
+        }        
     }      
 
     function login (username, password) {

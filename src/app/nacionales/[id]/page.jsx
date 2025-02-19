@@ -4,6 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import { productsContext } from "@/app/context/ProductsContext";
 import WhatsappForm from '../../components/WhatsappForm'
+import Loading from "@app/loading";
 
 export default function ProductNationalPage() {
   const { getProductById } = useContext(productsContext); // Solo usamos el método para obtener el producto
@@ -175,7 +176,7 @@ export default function ProductNationalPage() {
           </section>
         </main>
       ) : (
-        <div className="text-center text-xl my-10 font-bold">Cargando...</div>
+        <Loading />
       )}
     </>
   );

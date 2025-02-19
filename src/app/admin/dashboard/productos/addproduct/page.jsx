@@ -88,24 +88,19 @@ export default function AddProductAdminPage() {
             <p>Fecha/s de salida</p>
             <div className="flex gap-2 items-center justify-between">
               <input
-                className="text-gray-400 input shadow-md w-40 shadow-black/30"
+                className="text-gray-400 input shadow-md w-full shadow-black/30"
                 {...register("date", { required: true })}
                 type="date"
               />
-              <div onClick={() => setButton(true)}>
-              <Add width="30px" />
-              </div>
+
             </div>
 
-            <div className={button ? "text-gray-400 flex gap-2 items-center justify-between" : "hidden"}>
+            <div className={"text-gray-400 flex gap-2 items-center justify-between"}>
               <input
-                className="input shadow-md w-40 shadow-black/30"
+                className="input shadow-md w-full shadow-black/30"
                 type="date"
                 {...register("date2", {required: false}) }
               />
-              <div onClick={() => setButton(false)}>
-              <Delete width="30px" />
-              </div>
             </div>
 
             <Separator />

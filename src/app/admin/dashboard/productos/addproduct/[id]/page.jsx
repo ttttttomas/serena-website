@@ -12,6 +12,7 @@ import Link from "next/link";
 import Add from "@components/ui/icons/Add";
 import Delete from "@components/ui/icons/Delete";
 import { useParams, useRouter } from "next/navigation";
+import { toast } from 'sonner';
 
 export default function AddProductAdminPage() {
     const [image, setImage] = useState([]);
@@ -98,13 +99,13 @@ export default function AddProductAdminPage() {
       console.error(error);
     }
   };
-  const onSubmit = handleSubmit(async (data) => {
-
-    if(id){
+  const onSubmit = handleSubmit( data => {
       console.log(data);
-     await updateProduct(id, data);
-     router.push("/admin/dashboard/productos");
-    }
+      updateProduct(id, data);
+      if(updateProduct){
+        router.push("/admin/dashboard/productos")
+      }
+
   });
 
   return (

@@ -74,10 +74,11 @@ export default function AddCarteleraPage() {
             <p>Volver</p>
         </Link>
         <h1 className="text-center my-3 font-bold text-xl">Agregar cartelera</h1>
-        <form onSubmit={onSubmit} className="flex flex-col gap-10 my-10">
+        <form onSubmit={onSubmit} className="flex flex-col items-center justify-center gap-10 my-10">
             <div className="flex gap-20 justify-center">
-            <input {...register('descripcion')} className="shadow-lg rounded-md shadow-black/30" placeholder="Descripcion" type="text" />
-            <select {...register('periodo')} className="shadow-lg rounded-md shadow-black/30" placeholder='Periodo' id="">
+            <input {...register('descripcion')} className="h-min p-2 shadow-lg rounded-md shadow-black/30" placeholder="Descripcion" type="text" />
+            <select {...register('periodo')} className="h-min p-2 shadow-lg rounded-md shadow-black/30" placeholder='Periodo' id="">
+            <option value="">Periodo</option>
                 <option value="VERANO 2025">Verano 2025</option>
                 <option value="CARNAVALES 2025">Carnavales 2025</option>
             </select>

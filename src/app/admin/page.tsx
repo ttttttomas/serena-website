@@ -41,7 +41,7 @@ export default function AdminPage() {
                 </div>
                 <form onSubmit={onSubmit} className='flex flex-col w-full gap-5 justify-center items-center'>
                     <input {...register("username")} name='username' onChange={(e) => setUsername(e.target.value)} placeholder='Usuario' className='px-5 py-2 shadow-sm w-full h-12 rounded-xl mx-20' type="text" />
-                    <input {...register("password")} name='password' onChange={(e) => setPassword(e.target.value)} placeholder='Contraseña' className='px-5 py-2 shadow-sm w-full h-12 rounded-xl mx-20' type="text" />
+                    <input {...register("password")} name='password' onChange={(e) => setPassword(e.target.value)} placeholder='Contraseña' className='px-5 py-2 shadow-sm w-full h-12 rounded-xl mx-20' type="password" />
                     <button className='text-center bg-orangeMedium shadow-xl text-white rounded-xl w-full mx-auto p-2'>Ingresar</button>
                 </form>
            </div>

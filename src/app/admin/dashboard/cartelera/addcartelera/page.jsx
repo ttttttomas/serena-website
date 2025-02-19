@@ -50,6 +50,7 @@ export default function AddCarteleraPage() {
             <div className="flex gap-20 justify-center">
             <input {...register('descripcion')} className="shadow-lg rounded-md shadow-black/30" placeholder="Descripcion" type="text" />
             <select {...register('periodo')} className="shadow-lg rounded-md shadow-black/30" placeholder='Periodo' id="">
+                <option value="">Periodo</option>
                 <option value="VERANO 2025">Verano 2025</option>
                 <option value="CARNAVALES 2025">Carnavales 2025</option>
             </select>

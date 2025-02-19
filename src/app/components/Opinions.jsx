@@ -1,7 +1,4 @@
-'use client'
 import Link from 'next/link'
-import OpinionExample from './ui/icons/OpinionExample' 
-import { useEffect, useState } from 'react'
 
 export default function Opinions() {
 
@@ -71,15 +68,16 @@ export default function Opinions() {
   return (
     <section id="opinions" className='flex flex-col justify-center'>
       <h4 className='text-3xl text-center mb-20'>ALGUNAS DE NUESTRAS RESEÑAS</h4>
-        <ul className='flex justify-center text-center flex-nowrap overflow-scroll'>
+        <ul className='flex text-center overflow-scroll overflow-x-hidden pb-10'>
           {reviews.map((review, index) => (
-            <Link target='_blank' href={review.author_url} key={index} className='relative md:py-32 md:p-20 py-20 mx-5'>
-            <div className='absolute -top-0.5 md:left-[170px] left-[80px]'>
+            <Link target='_blank' href={review.author_url} key={index} className='hover:shadow transition-all relative md:py-32 md:p-20 py-20 mx-5'>
+            <div className='absolute top-3 md:left-[170px] left-[80px]'>
                 <div className='w-[130px] h-[130px] flex justify-center items-center rounded-full text-white bg-orangeMedium'>
                   <p className='my-auto'>{review.author_name}</p>
                 </div>
             </div>
-            <div className={`flex shadow-2xl justify-center bg-opinionBg rounded-lg items-center mt-5 z-50 ${review.text.length > 260 ? 'overflow-y-scroll' : ''} max-h-52 w-80`}>
+            <p className='my-5'>{`⭐: ${review.rating} estrellas.`}</p>
+            <div className={`flex shadow-2xl px-5 py-3 bg-opinionBg/15 rounded-lg mt-5 z-50 ${review.text.length > 260 ? 'overflow-y-scroll' : ''} max-h-52 w-80`}>
               <p className='z-40 text-center'>{review.text}</p>
             </div>
           </Link>

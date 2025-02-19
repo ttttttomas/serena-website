@@ -6,9 +6,12 @@ import Pagination from '@components/Pagination'
 
 import AereosIcon from '@/app/components/ui/icons/AereosIcon'
 import DiasIcon from '@/app/components/ui/icons/DiasIcon'
+import BusIcon from '@/app/components/ui/icons/BusIcon'
 import NochesIcon from '@/app/components/ui/icons/NochesIcon'
 import DesayunoIcon from '@/app/components/ui/icons/DesayunoIcon'
 import CalendarCard from '@/app/components/CalendarCard'
+
+import Loading from "@app/loading";
 
 import { productsContext } from '@/app/context/ProductsContext';
 
@@ -74,7 +77,7 @@ export default function Nacionales() {
                     VERANO 2025
                 </h5>
                 {productsWithDates.length === 0 ? (
-                <p className='text-center font-bold my-10 text-xl'>Cargando...</p>
+                <Loading />
             ) : (
                 productsWithDates.map(product => (
                     <Link
@@ -96,9 +99,9 @@ export default function Nacionales() {
                                 <ul className="flex gap-4 font-bold xl:mb-0 mb-3">
                                     <li className='flex items-center justify-center gap-2'>
 
-                                        {product.transporte === "BUS SEMICAMA" ? <AereosIcon /> : ""}
-                                        {product.transporte === "BUS CAMA" ? <AereosIcon /> : ""}
-                                        {product.transporte === "BUS MIX" ? <AereosIcon /> : ""}
+                                        {product.transporte === "BUS SEMICAMA" ? <BusIcon /> : ""}
+                                        {product.transporte === "BUS CAMA" ? <BusIcon /> : ""}
+                                        {product.transporte === "BUS MIX" ? <BusIcon /> : ""}
                                         {product.transporte === "BUS AEREOS" ? <AereosIcon /> : ""}
 
                                         <p>{product.transporte}</p>
@@ -145,12 +148,9 @@ export default function Nacionales() {
             ))
             )
             }
-                <h5 className="bg-opinionBg text-2xl py-1 w-full clip text-center mt-8 font-bold">
+                <h5 className="bg-opinionBg text-2xl mb-8 py-1 w-full clip text-center mt-8 font-bold">
                     CARNAVALES 2025
                 </h5>
-            <div className='flex justify-center items-center mb-5'>
-                <Pagination />
-            </div>
             </section>
       </main>
     )

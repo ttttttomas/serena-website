@@ -3,11 +3,14 @@ import Link from "next/link"
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { productsContext } from "@/app/context/ProductsContext";
+import { useRouter } from "next/navigation";
+
 
 export default function AddCarteleraPage() {
     const {createDestacado} = useContext(productsContext)
     const { register, handleSubmit, setValue } = useForm();
     const [image, setImage] = useState([]);
+    const router = useRouter()
 
 
     const handleFileChange = async (e) => {
@@ -35,6 +38,7 @@ export default function AddCarteleraPage() {
       const onSubmit = handleSubmit((data) => {
         console.log(data);
         createDestacado(data)
+        router.push("/admin/dashboard/destacados")
     });
   return (
     <main>
@@ -61,7 +65,7 @@ export default function AddCarteleraPage() {
                 />
               </>
             )}
-            <button className="bg-orangeMedium w-max mx-auto px-32 py-2 text-white font-semibold rounded-xl shadow-md shadow-black/50" type="submit">Agregar cartel</button>
+            <button className="bg-orangeMedium w-max mx-auto px-32 py-2 text-white font-semibold rounded-xl shadow-md shadow-black/50" type="submit">Agregar destacado</button>
         </form>   
     </main>
   )

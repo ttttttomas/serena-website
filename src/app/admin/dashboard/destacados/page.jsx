@@ -3,17 +3,20 @@ import Link from "next/link";
 import axios from 'axios'
 import { useState, useEffect, useContext } from "react";
 import { productsContext } from "@/app/context/ProductsContext";
+import Loading from "@app/loading";
 
 
 export default function Destacados() {
   const [destacados, setDestacados] = useState([]);
   const {deleteDestacado} = useContext(productsContext)
+  const [loading, setLoading] = useState(true)
   
   useEffect(() => {
       const loadProducts = async () => {
         const res = await axios.get('https://backend-serena-production.up.railway.app/destacados')
         console.log(res.data);
         setDestacados(res.data)
+        setLoading(true)
       }
       loadProducts()
     }, [])
@@ -21,6 +24,7 @@ export default function Destacados() {
     const deleteProduct = (id) => {
       const res = window.confirm('Seguro quieres eliminar?')
       if (res) {
+        window.location.reload()
         deleteDestacado(id)
       }
     }
@@ -38,18 +42,17 @@ export default function Destacados() {
       <h2 className="text-center font-bold text-lg">Destacados página de inicio</h2>
       <p className="text-center text-orangeMedium">Destacados subidos </p>
 
-      <div className="mt-4 mx-auto w-1/2 space-y-4">
-        {destacados.map((item) => (
-          <div key={item.ID} className="flex items-center gap-4 p-2 rounded-lg">
+      <div className="mt-4 mx-auto space-y-4">
+      {destacados.length === 0 ? <Loading /> : 
+        destacados.map((item) => (
+          <div key={item.ID} className="flex items-center justify-center gap-12 mx-auto rounded-lg">
             <img src={item.image} alt={item.ID} className="size-72 rounded-lg" />
-            <div className="flex-1">
+            <div>
               <p className="font-semibold">{item.titulo}</p>
             </div>
             <button
-            onClick={() => deleteProduct(item.ID)}
-              className="text-white bg-orangeMedium p-3 rounded-xl flex items-center gap-1"
-              
-            >
+              onClick={() => deleteProduct(item.ID)}
+              className="text-white bg-orangeMedium p-3 rounded-xl flex items-center gap-1">
                Eliminar
             </button>
           </div>
