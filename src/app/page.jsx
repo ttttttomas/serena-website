@@ -3,10 +3,33 @@ import AsesoriaIcon from './components/ui/icons/Asesoria'
 import MedicIcon from './components/ui/icons/Medic'
 import Opinions from './components/Opinions'
 import Checked from './components/ui/icons/Checked'
-
+import { useState, useContext, useEffect } from 'react'
+import { productsContext } from '@app/context/ProductsContext'
 import BoxsHome from './components/ui/BoxsHome'
+import axios from 'axios'
+import { set } from 'react-hook-form'
+import Loading from './loading'
+
 
 export default function Home() {
+  const {getDestacados} = useContext(productsContext)
+  const [destacados, setDestacados] = useState([]);
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const loadProducts = async () => {
+        try {
+            const res = await axios.get('https://backend-serena-production.up.railway.app/destacados');
+            console.log(res.data);
+            setDestacados(res.data);
+            setLoading(false);
+        } catch (error) {
+            console.error("Error fetching products:", error);
+        }
+    };
+
+    loadProducts();
+}, []);
   return (
     <main>
         <img 
@@ -19,28 +42,15 @@ export default function Home() {
         NUESTROS PRODUCTOS DESTACADOS
       </h1>
       <div className="flex flex-wrap justify-center gap-20 md:gap-48 mt-6 items-center">
-        <img 
-        src="./productos-inicio.png" 
-        className="min-w-64 h-72 hover:scale-110 transition-all cursor-pointer object-cover rounded-xl shadow-md shadow-orangeLight" 
-        alt="" 
-        />
-        <img 
-        src="./productos-inicio.png" 
-        className="min-w-64 h-72 hover:scale-110 transition-all cursor-pointer object-cover rounded-xl shadow-md shadow-orangeLight" 
-        alt="" 
-        />
-        <img 
-        src="./productos-inicio.png" 
-        className="min-w-64 h-72 hover:scale-110 transition-all cursor-pointer object-cover rounded-xl shadow-md shadow-orangeLight" 
-        alt="" 
-        />
-        <img 
-        src="./productos-inicio.png" 
-        className="min-w-64 h-72 hover:scale-110 transition-all cursor-pointer object-cover rounded-xl shadow-md shadow-orangeLight" 
-        alt="" 
-        />
+        {loading ? <Loading /> : destacados.map((item)=> (
+          <img
+          key={item.ID}
+          src={item.image}
+          className="max-w-64 hover:scale-110 transition-all cursor-pointer object-cover rounded-xl shadow-md shadow-orangeLight" 
+          alt="" 
+          />
+        ))}
       </div>
-
       <section id='elegirnos' className="flex gap-5 justify-center lg:flex-col xl:flex-row flex-col items-center mt-28">
         <div className="flex xl:w-[890px] h-auto xl:h-[400px] w-full shadow-2xl">
           <div className="grid border-r pr-20 border-black w-36 grid-cols-2 bg-creamBg">

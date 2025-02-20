@@ -66,6 +66,7 @@ export default function ProductsContextProvider ({ children }) {
                 },
                 body: JSON.stringify(data)
             });
+        toast.success('Formulario enviado con exito');
     } catch (error) {
         console.error("Error al enviar formulario:", error);
         toast.error('Error al enviar formulario');

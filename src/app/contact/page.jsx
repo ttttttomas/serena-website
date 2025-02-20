@@ -7,16 +7,14 @@ import {toast} from "sonner"
 
 export default function Contacto() {
 
-    const { contact } = useContext(productsContext);
+      const { contact } = useContext(productsContext);
+    console.log(contact)
 
     const {register, handleSubmit} = useForm();
 
     const onSubmit = handleSubmit((data) => {
         console.log(data);
         contact(data);
-        window.location.reload();
-        toast.success('Formulario enviado con exito');
-
     });
 
     return (
@@ -42,6 +40,9 @@ export default function Contacto() {
                          placeholder="Apellido" className="px-3 bg-white h-12 rounded-xl" type="text" />
                         <input               
                         {...register("telefono", { required: true })}
+                        onInput={(e) => {
+                            e.target.value = e.target.value.replace(/[^0-9]/g, ''); // Elimina todo lo que no sea número
+                        }}
                          placeholder="Teléfono" className="px-3 bg-white h-12 rounded-xl" type="text" />
                     </div>
                 </div>

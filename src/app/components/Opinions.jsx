@@ -68,7 +68,7 @@ export default function Opinions() {
   return (
     <section id="opinions" className='flex flex-col justify-center'>
       <h4 className='text-3xl text-center mb-20'>ALGUNAS DE NUESTRAS RESEÑAS</h4>
-        <ul className='flex text-center overflow-scroll overflow-x-hidden pb-10'>
+        <ul className='flex text-center overflow-x-scroll pb-10'>
           {reviews.map((review, index) => (
             <Link target='_blank' href={review.author_url} key={index} className='hover:shadow transition-all relative md:py-32 md:p-20 py-20 mx-5'>
             <div className='absolute top-3 md:left-[170px] left-[80px]'>
