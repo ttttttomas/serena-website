@@ -10,8 +10,9 @@ import {useRouter} from 'next/navigation'
 import Loading from "@app/loading";
 
 export default function ProductsAdminPage() {
-  const { products, setProducts, getProducts, deleteProduct,user,setUser } = useContext(productsContext);
+  const {getProducts, deleteProduct,user,setUser } = useContext(productsContext);
   const [loading, setLoading] = useState(true);
+  const [products, setProducts] = useState([]);
   const router = useRouter()
 
   useEffect(() => {
@@ -28,6 +29,7 @@ export default function ProductsAdminPage() {
           }
         }
         loadProducts()
+        console.log(products);
         
       }, [])
 
@@ -44,6 +46,7 @@ export default function ProductsAdminPage() {
   }else {
     return
   }
+  
 }
 
   return (

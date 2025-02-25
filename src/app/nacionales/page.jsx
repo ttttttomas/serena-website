@@ -62,7 +62,9 @@ export default function Nacionales() {
         };
     });
     
-    console.log(productsWithDates);
+    const productsfiltered = productsWithDates.filter(product => product.paquete === "NACIONAL")
+    console.log(productsfiltered)
+    console.log(productsfiltered.length);
     
 
     return (
@@ -76,10 +78,10 @@ export default function Nacionales() {
                 <h5 className="bg-opinionBg text-2xl py-1 w-full clip text-center mt-8 font-bold">
                     VERANO 2025
                 </h5>
-                {productsWithDates.length === 0 ? (
+                {productsfiltered.length === 0 ? (
                 <Loading />
             ) : (
-                productsWithDates.map(product => (
+                productsfiltered.map(product => (
                     <Link
                     onClick={() => console.log(product.transporte)}
                     key={product.ID} 

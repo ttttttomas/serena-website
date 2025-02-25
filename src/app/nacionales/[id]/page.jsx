@@ -128,8 +128,6 @@ export default function ProductNationalPage() {
                   <p className="mt-4">{`${currentProduct.observaciones2}`}</p>
                   <ul className="mt-2">
                     <li>{`${currentProduct.observaciones3}`}</li>
-                    <li>{`${currentProduct.observaciones4}`}</li>
-                    <li>{`${currentProduct.observaciones5}`}</li>
                   </ul>
                 </ul>
               </div>

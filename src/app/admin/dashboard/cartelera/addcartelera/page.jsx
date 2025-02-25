@@ -3,12 +3,14 @@ import Link from "next/link"
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { productsContext } from "@/app/context/ProductsContext";
+import { useRouter } from "next/navigation";
 
 export default function AddCarteleraPage() {
     const {createCartelera} = useContext(productsContext)
     const { register, handleSubmit, setValue } = useForm();
     const [image, setImage] = useState([]);
 
+    const router = useRouter()
 
     const handleFileChange = async (e) => {
         const imageFile = e.target.files[0];
@@ -35,6 +37,7 @@ export default function AddCarteleraPage() {
       const onSubmit = handleSubmit((data) => {
         console.log(data);
         createCartelera(data)
+        router.push('/admin/dashboard/cartelera')
     });
   return (
     <main>

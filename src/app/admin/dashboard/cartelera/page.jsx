@@ -18,6 +18,7 @@ export default function Cartelera() {
   const deleteProduct = (id) => {
     const res = window.confirm('Seguro quieres eliminar?')
     if (res) {
+      window.location.reload()
       deleteCartelera(id)
     }
   }
