@@ -15,9 +15,7 @@ export default function ProductsAdminPage() {
   const [products, setProducts] = useState([]);
   const router = useRouter()
 
-  useEffect(() => {
-    console.log(user);
-    
+  useEffect(() => {    
       setProducts([])
         const loadProducts = async () => {
           if (user === false) {
@@ -28,9 +26,7 @@ export default function ProductsAdminPage() {
             setLoading(false);
           }
         }
-        loadProducts()
-        console.log(products);
-        
+        loadProducts()        
       }, [])
 
   const handlePut = (id) => {
@@ -42,7 +38,6 @@ export default function ProductsAdminPage() {
     if(response) {
       deleteProduct(id)
       window.location.reload()
-      setUser(true)
   }else {
     return
   }
@@ -111,7 +106,7 @@ export default function ProductsAdminPage() {
             ))}
           </tbody>
         </table>}
-      </>) : 'Cargando...'}
+      </>) : <Loading />}
       
     </main>
   );

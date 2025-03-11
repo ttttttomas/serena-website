@@ -76,12 +76,12 @@ export default function Nacionales() {
             />
             <section className="md:w-3/5 md:mx-auto mx-5">
                 <h5 className="bg-opinionBg text-2xl py-1 w-full clip text-center mt-8 font-bold">
-                    VERANO 2025
+                    SEMANA SANTA 2025
                 </h5>
                 {productsfiltered.length === 0 ? (
                 <Loading />
             ) : (
-                productsfiltered.map(product => (
+                productsfiltered.filter(product => product.periodo === "SEMANA SANTA").map(product => (
                     <Link
                     onClick={() => console.log(product.transporte)}
                     key={product.ID} 
@@ -151,8 +151,155 @@ export default function Nacionales() {
             )
             }
                 <h5 className="bg-opinionBg text-2xl mb-8 py-1 w-full clip text-center mt-8 font-bold">
-                    CARNAVALES 2025
+                    MARZO 2025
                 </h5>
+                {productsfiltered.length === 0 ? (
+                ""
+            ) : (
+                productsfiltered.filter(product => product.periodo === "MARZO 2025").map(product => (
+                    <Link
+                    onClick={() => console.log(product.transporte)}
+                    key={product.ID} 
+                    href={`/nacionales/${product.ID}`}	
+                    className="container rounded-2xl cursor-pointer md:hover:scale-105 md:hover:shadow-orangeMedium transition-all flex flex-col xl:flex-row p-3 gap-5 my-5 shadow-md shadow-gray-400 xl:pr-10">
+                       <div className='flex items-center justify-center w-full'>
+                            <img
+                            className="rounded-2xl max-h-[290px] w-full"
+                            src={product.image}
+                            alt={product.destino} 
+                            />     
+                       </div>
+        
+                       <div className="flex flex-col justify-center gap-12 w-full">
+                            <div className="flex justify-between flex-col xl:flex-row items-center">
+                                <h6 className="text-orangeMedium text-xl font-bold xl:mb-0 mb-3">{product.destino}</h6>
+                                <ul className="flex gap-4 font-bold xl:mb-0 mb-3">
+                                    <li className='flex items-center justify-center gap-2'>
+
+                                        {product.transporte === "BUS SEMICAMA" ? <BusIcon /> : ""}
+                                        {product.transporte === "BUS CAMA" ? <BusIcon /> : ""}
+                                        {product.transporte === "BUS MIX" ? <BusIcon /> : ""}
+                                        {product.transporte === "BUS AEREOS" ? <AereosIcon /> : ""}
+
+                                        <p>{product.transporte}</p>
+                                    </li>
+                                    <li className='flex items-center justify-center gap-2'>
+                                        <DiasIcon />
+                                        <p>{product.days}</p>
+                                    </li>
+                                    <li className='flex items-center justify-center gap-2'>
+                                        <NochesIcon />
+                                        <p>{product.nights}</p>
+                                    </li>
+                                    <li className='flex items-center justify-center gap-2'>
+                                        <DesayunoIcon />
+                                        <p>{product.regimen}</p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div className="flex flex-col gap-5 xl:gap-8 items-start">
+                                <p className='font-semibold'>
+                                    {product.descripcion}
+                                    </p>
+                                <small className='text-start'>
+                                    {product.subtitulo}                            
+                                </small>
+                            </div>
+                            <div className='flex flex-col mt-3 xl:mt-0 xl:flex-row items-center gap-3 justify-between'>
+                                <div className='flex items-center gap-3'>
+                                <p className='text-orangeMedium font-bold text-5xl text-nowrap tracking-wider'>{`$ ${product.precio}.-`}</p>
+                                <p className='font-semibold tracking-wider'>{product.adicional === "" ? "" : `+ $ ${product.adicional}.-`}</p>
+                                </div>
+                                <ul className='flex w-full xl:w-auto xl:justify-center justify-center xl:gap-5 gap-32'>
+                                    <CalendarCard day={product.dia} month={product.mes} />
+                                    {product.date2 ?
+                                    <div className='flex items-center justify-center md:gap-5'>
+                                    <p>AL</p> 
+                                    <CalendarCard day={product.dia2} month={product.mes2} />
+                                    </div> 
+                                     : ""}
+                                </ul>
+                            </div> 
+                        </div>
+                    </Link>
+            ))
+            )
+            }
+            <h5 className="bg-opinionBg text-2xl mb-8 py-1 w-full clip text-center mt-8 font-bold">
+                    BAJA 2025
+            </h5>
+            {productsfiltered.length === 0 ? (
+                ""
+            ) : (
+                productsfiltered.filter(product => product.periodo === "BAJA 2025").map(product => (
+                    <Link
+                    onClick={() => console.log(product.transporte)}
+                    key={product.ID} 
+                    href={`/nacionales/${product.ID}`}	
+                    className="container rounded-2xl cursor-pointer md:hover:scale-105 md:hover:shadow-orangeMedium transition-all flex flex-col xl:flex-row p-3 gap-5 my-5 shadow-md shadow-gray-400 xl:pr-10">
+                       <div className='flex items-center justify-center w-full'>
+                            <img
+                            className="rounded-2xl max-h-[290px] w-full"
+                            src={product.image}
+                            alt={product.destino} 
+                            />     
+                       </div>
+        
+                       <div className="flex flex-col justify-center gap-12 w-full">
+                            <div className="flex justify-between flex-col xl:flex-row items-center">
+                                <h6 className="text-orangeMedium text-xl font-bold xl:mb-0 mb-3">{product.destino}</h6>
+                                <ul className="flex gap-4 font-bold xl:mb-0 mb-3">
+                                    <li className='flex items-center justify-center gap-2'>
+
+                                        {product.transporte === "BUS SEMICAMA" ? <BusIcon /> : ""}
+                                        {product.transporte === "BUS CAMA" ? <BusIcon /> : ""}
+                                        {product.transporte === "BUS MIX" ? <BusIcon /> : ""}
+                                        {product.transporte === "BUS AEREOS" ? <AereosIcon /> : ""}
+
+                                        <p>{product.transporte}</p>
+                                    </li>
+                                    <li className='flex items-center justify-center gap-2'>
+                                        <DiasIcon />
+                                        <p>{product.days}</p>
+                                    </li>
+                                    <li className='flex items-center justify-center gap-2'>
+                                        <NochesIcon />
+                                        <p>{product.nights}</p>
+                                    </li>
+                                    <li className='flex items-center justify-center gap-2'>
+                                        <DesayunoIcon />
+                                        <p>{product.regimen}</p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div className="flex flex-col gap-5 xl:gap-8 items-start">
+                                <p className='font-semibold'>
+                                    {product.descripcion}
+                                    </p>
+                                <small className='text-start'>
+                                    {product.subtitulo}                            
+                                </small>
+                            </div>
+                            <div className='flex flex-col mt-3 xl:mt-0 xl:flex-row items-center gap-3 justify-between'>
+                                <div className='flex items-center gap-3'>
+                                <p className='text-orangeMedium font-bold text-5xl text-nowrap tracking-wider'>{`$ ${product.precio}.-`}</p>
+                                <p className='font-semibold tracking-wider'>{product.adicional === "" ? "" : `+ $ ${product.adicional}.-`}</p>
+                                </div>
+                                <ul className='flex w-full xl:w-auto xl:justify-center justify-center xl:gap-5 gap-32'>
+                                    <CalendarCard day={product.dia} month={product.mes} />
+                                    {product.date2 ?
+                                    <div className='flex items-center justify-center md:gap-5'>
+                                    <p>AL</p> 
+                                    <CalendarCard day={product.dia2} month={product.mes2} />
+                                    </div> 
+                                     : ""}
+                                </ul>
+                            </div> 
+                        </div>
+                    </Link>
+            ))
+            )
+            }
             </section>
       </main>
     )
