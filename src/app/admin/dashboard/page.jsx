@@ -13,6 +13,7 @@ import { useLayoutEffect } from "react";
 export default function AdminDashboard() {
     const router = useRouter()
     const user = localStorage.getItem("user");
+    
     useLayoutEffect(() => {
             if (user) {
                 router.push('/admin/dashboard')
@@ -21,6 +22,7 @@ export default function AdminDashboard() {
             }
     }
     , [])
+
     const sessionLogout = () => {
         localStorage.removeItem("user");
         router.refresh()
