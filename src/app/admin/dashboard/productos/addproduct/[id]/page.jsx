@@ -201,7 +201,7 @@ export default function AddProductAdminPage() {
               className="text-gray-400 text-start text-sm input w-full shadow-md shadow-black/30"
               id="periodo">
               <option value="">Período</option>
-              <option value="SALIDAS GRUPALES">SEMANA SANTA</option>
+              <option value="SEMANA SANTA">SEMANA SANTA</option>
               <option value="MARZO 2025">MARZO 2025</option>
               <option value="BAJA 2025">BAJA 2025</option>
             </select>

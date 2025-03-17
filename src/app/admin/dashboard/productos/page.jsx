@@ -10,7 +10,7 @@ import {useRouter} from 'next/navigation'
 import Loading from "@app/loading";
 
 export default function ProductsAdminPage() {
-  const {getProducts, deleteProduct,user,setUser } = useContext(productsContext);
+  const {getProducts, deleteProduct,user } = useContext(productsContext);
   const [loading, setLoading] = useState(true);
   const [products, setProducts] = useState([]);
   const router = useRouter()
@@ -37,7 +37,9 @@ export default function ProductsAdminPage() {
     const response = window.confirm("¿Estás seguro de que deseas eliminar este producto?")
     if(response) {
       deleteProduct(id)
-      window.location.reload()
+      if(deleteProduct){
+        router.push("/admin/dashboard/productos")
+      }
   }else {
     return
   }
@@ -46,7 +48,7 @@ export default function ProductsAdminPage() {
 
   return (
     <main className="flex flex-col mx-14 my-10">
-      {user ? (
+      {(
         <>
         <Link
         href="/admin/dashboard"
@@ -106,7 +108,7 @@ export default function ProductsAdminPage() {
             ))}
           </tbody>
         </table>}
-      </>) : <Loading />}
+      </>)}
       
     </main>
   );

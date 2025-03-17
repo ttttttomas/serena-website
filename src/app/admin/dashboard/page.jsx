@@ -5,33 +5,26 @@ import Admin3 from "@components/ui/icons/Admin-3";
 import Admin4 from "@components/ui/icons/Admin-4";
 
 import { useRouter } from 'next/navigation'
-import { useContext } from 'react';
-
-import { productsContext } from '@/app/context/ProductsContext';
-
 import './Dashboard.css'
 
 import Link from 'next/link'
-import { useEffect } from "react";
+import { useLayoutEffect } from "react";
 
 export default function AdminDashboard() {
     const router = useRouter()
-    const { user, handleLogout } = useContext(productsContext)
-    
-    useEffect(() => {
-        const userTrue = localStorage.getItem('user')
-        console.log(user, userTrue);
-        
-        function isUserTrue () {
-            if (user === true) {
+    const user = localStorage.getItem("user");
+    useLayoutEffect(() => {
+            if (user) {
                 router.push('/admin/dashboard')
             }else{
                 router.push('/admin')
             }
-        }
-        isUserTrue()
     }
     , [])
+    const sessionLogout = () => {
+        localStorage.removeItem("user");
+        router.refresh()
+    }
 
 return( <section className="">
     {user ? (<div className='bg-creamBg background gap-3 my-10 p-12 flex flex-col items-center justify-center border mx-auto w-[500px]'>  
@@ -48,7 +41,7 @@ return( <section className="">
                 <Admin3/>
                 <p>Cartelera</p>
             </Link>
-            <Link href="/admin" onClick={handleLogout} className="flex gap-3 items-center justify-center">
+            <Link href="/admin" onClick={sessionLogout} className="flex gap-3 items-center justify-center">
                 <Admin4/>
                 <p>Cerrar sesión</p>
             </Link>

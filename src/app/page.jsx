@@ -20,7 +20,6 @@ export default function Home() {
     const loadProducts = async () => {
         try {
             const res = await axios.get('https://backend-serena-production.up.railway.app/destacados');
-            console.log(res.data);
             setDestacados(res.data);
             setLoading(false);
         } catch (error) {

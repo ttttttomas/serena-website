@@ -12,8 +12,6 @@ export default function ProductsContextProvider ({ children }) {
     
     const [products, setProducts] = useState([]);
 
-    const [user, setUser] = useState(false);
-
     function getProducts () {
         return axios.get(baseURL);
     }
@@ -72,11 +70,6 @@ export default function ProductsContextProvider ({ children }) {
         toast.error('Error al enviar formulario');
 
     }
-    }
-
-    function handleLogout () {
-        setUser(false)
-        localStorage.removeItem('user')
     }
 
     function getDestacados () {
@@ -140,10 +133,7 @@ export default function ProductsContextProvider ({ children }) {
     return (
         <productsContext.Provider value={{ 
             products,
-            user, 
             setProducts,
-            setUser,
-            handleLogout, 
             getProducts,
             getDestacados,
             getCartelera,

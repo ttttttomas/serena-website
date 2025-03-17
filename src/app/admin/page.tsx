@@ -2,7 +2,6 @@
 import { useContext, useState } from 'react';
 import './admin.css'
 import {useRouter} from 'next/navigation'
-import { productsContext } from '../context/ProductsContext';
 import {useForm} from 'react-hook-form'
 import {toast} from 'sonner'
 
@@ -10,16 +9,14 @@ import {toast} from 'sonner'
 export default function AdminPage() {
     const {register, handleSubmit} = useForm()
     const router = useRouter() 
-    const {setUser} = useContext(productsContext)
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
 
     const onSubmit = handleSubmit (data => {        
         if(data.username === "admin" && data.password === "serena11999"){
-            setUser(true)
             router.push('/admin/dashboard')
-            const userTrue = localStorage.setItem('user', 'userTrue') 
-            console.log(userTrue);
+            const userTrue = localStorage.setItem('user', 'userTrue')
+            console.log(userTrue)
         }else{
             toast.error('Usuario o contraseña incorrectos')
         }
@@ -40,9 +37,9 @@ export default function AdminPage() {
                     </p>
                 </div>
                 <form onSubmit={onSubmit} className='flex flex-col w-full gap-5 justify-center items-center'>
-                    <input {...register("username")} name='username' onChange={(e) => setUsername(e.target.value)} placeholder='Usuario' className='px-5 py-2 shadow-sm w-full h-12 rounded-xl mx-20' type="text" />
-                    <input {...register("password")} name='password' onChange={(e) => setPassword(e.target.value)} placeholder='Contraseña' className='px-5 py-2 shadow-sm w-full h-12 rounded-xl mx-20' type="password" />
-                    <button className='text-center bg-orangeMedium shadow-xl text-white rounded-xl w-full mx-auto p-2'>Ingresar</button>
+                    <input {...register("username")} name="username" onChange={(e) => setUsername(e.target.value)} placeholder='Usuario' className='px-5 py-2 shadow-sm w-full h-12 rounded-xl mx-20' type="text" />
+                    <input {...register("password")} name="password" onChange={(e) => setPassword(e.target.value)} placeholder='Contraseña' className='px-5 py-2 shadow-sm w-full h-12 rounded-xl mx-20' type="password" />
+                    <button type="submit" className='text-center bg-orangeMedium shadow-xl text-white rounded-xl w-full mx-auto p-2'>Ingresar</button>
                 </form>
            </div>
         </section>

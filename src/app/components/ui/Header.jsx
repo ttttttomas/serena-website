@@ -16,13 +16,8 @@ import { productsContext } from '@/app/context/ProductsContext';
 
 
 export default function Header() {
-    const { user } = useContext(productsContext)
-    const [userTrue, setUserTrue] = useState(null);
 
-    useEffect(() => {
-      const storedUser = localStorage.getItem("user");
-      setUserTrue(storedUser);
-    }, []);
+    const user = localStorage.getItem("user");
 
 // MD ES DESKTOP
 
@@ -53,7 +48,7 @@ export default function Header() {
                          <Instagram />
                     </Link>
                 </ul>
-                {!userTrue & !user ? (<Link href="/admin" className="flex items-center justify-end gap-3 cursor-pointer hover:underline">
+                {!user ? (<Link href="/admin" className="flex items-center justify-end gap-3 cursor-pointer hover:underline">
                     <AdminIcon text='Acceso' />
                 </Link>) : 
                 <Link href="/admin/dashboard" className="flex items-center justify-end gap-3 cursor-pointer hover:underline">
