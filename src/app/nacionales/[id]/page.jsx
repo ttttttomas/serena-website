@@ -36,7 +36,7 @@ export default function ProductNationalPage() {
             alt="background-section"
             className="w-full h-[400px] object-cover mt-1"
           />
-          <section className="flex lg:flex-row flex-col">
+          <section className="flex gap lg:flex-row flex-col">
             <div className="w-full mb-10">
               <ul className="flex bg-creamBg py-4 md:gap-32 text-sm md:text-base gap-3 justify-center font-semibold px-8 text-center">
                 <a href="#detalles">Detalles</a>
@@ -51,6 +51,8 @@ export default function ProductNationalPage() {
               <h3 className="text-center text-orangeMedium font-bold text-xl tracking-wide mt-5">
                 {currentProduct.subtitulo}
               </h3>
+              <div className="flex flex-col gap-5">
+
               <div
                 id="detalles"
                 className="my-3 shadow-2xl rounded-3xl w-3/4 mx-auto">
@@ -65,55 +67,51 @@ export default function ProductNationalPage() {
                 </ul>
               </div>
 
-              <div
+              {currentProduct.itinerario && <div
                 id="itinerario"
                 className="my-3 shadow-2xl rounded-3xl w-3/4 mx-auto">
                 <p className="bg-creamBg py-3 shadow-lg rounded-t-lg text-start text-sm font-semibold px-4">
                   Itinerario
                 </p>
                 <ul className="flex flex-col gap-5 px-4 py-6 text-sm font-semibold">
-                  <li>Dia 1: {currentProduct.itinerario}</li>
-                  <li>Día 2: {currentProduct.itinerario2}</li>
-                  <li>Día 3: {currentProduct.itinerario3}</li>
-                  <li>Día 4: {currentProduct.itinerario4}</li>
-                  <li>Día 5: {currentProduct.itinerario5}</li>
-                  <li>Día 6: {currentProduct.itinerario6}</li>
-                  <li>Día 7: {currentProduct.itinerario7}</li>
-                  <li>Día 8: {currentProduct.itinerario8}</li>
+                  {currentProduct.itinerario && <li>Dia 1: {currentProduct.itinerario}</li>}
+                  {currentProduct.itinerario2 && <li>Día 2: {currentProduct.itinerario2}</li>}
+                  {currentProduct.itinerario3 && <li>Día 3: {currentProduct.itinerario3}</li>}
+                  {currentProduct.itinerario4 && <li>Día 4: {currentProduct.itinerario4}</li>}
+                  {currentProduct.itinerario5 && <li>Día 5: {currentProduct.itinerario5}</li>}
+                  {currentProduct.itinerario6 && <li>Día 6: {currentProduct.itinerario6}</li>}
+                  {currentProduct.itinerario7 && <li>Día 7: {currentProduct.itinerario7}</li>}
+                  {currentProduct.itinerario8 && <li>Día 8: {currentProduct.itinerario8}</li>}
                 </ul>
-              </div>
+              </div>}
 
-              <div
+              {currentProduct.incluye && <div
                 id="incluye"
                 className="my-3 shadow-2xl rounded-3xl w-3/4 mx-auto">
                 <p className="bg-creamBg py-3 shadow-lg rounded-t-lg text-start text-sm font-semibold px-4">
                   Incluye
                 </p>
-                <ul className="flex flex-col gap-5 px-4 py-6 text-sm font-semibold">
-                  <li>{`${currentProduct.incluye}`}</li>
-                  <li>
-                  {`${currentProduct.incluye2}`}
-                  </li>
-                  <li>{`${currentProduct.incluye3}`}</li>
-                  <li>
-                  {`${currentProduct.incluye4}`}
-                  </li>
+                <ul className="flex flex-col gap-2 px-4 py-6 text-sm font-semibold">
+                  {currentProduct.incluye && <li>{`${currentProduct.incluye}`}</li>}
+                  {currentProduct.incluye2 && <li>{`${currentProduct.incluye2}`}</li>}
+                  {currentProduct.incluye3 && <li>{`${currentProduct.incluye3}`}</li>}
+                  {currentProduct.incluye4 && <li>{`${currentProduct.incluye4}`}</li>}
                 </ul>
-              </div>
+              </div>}
 
-              <div
+              {currentProduct.tarifas && <div
                 id="tarifas"
-                className="my-3 shadow-2xl rounded-3xl pb-6 w-3/4 mx-auto">
+                className="my-3 shadow-2xl rounded-3xl pb-2 w-3/4 mx-auto">
                 <p className="bg-creamBg py-3 shadow-lg rounded-t-lg text-start text-sm font-semibold px-4">
                   Tarifas
                 </p>
-                <ul className="flex flex-col gap-5 px-4 pt-6 pb-8 text-sm font-semibold">
-                  <li>{`${currentProduct.tarifas}`}</li>
-                  <li>{`${currentProduct.tarifas2}`}</li>
-                  <li>{`${currentProduct.tarifas3}`}</li>
-                  <li>{`${currentProduct.tarifas4}`}</li>
+                <ul className="flex flex-col gap-2 px-4 pt-6 pb-4 text-sm font-semibold">
+                  {currentProduct.tarifas && <li>{`${currentProduct.tarifas}`}</li>}
+                  {currentProduct.tarifas2 && <li>{`${currentProduct.tarifas2}`}</li>}
+                  {currentProduct.tarifas3 && <li>{`${currentProduct.tarifas3}`}</li>}
+                  {currentProduct.tarifas4 && <li>{`${currentProduct.tarifas4}`}</li>}
                 </ul>
-              </div>
+              </div>}
 
               <div
                 id="observaciones"
@@ -121,15 +119,12 @@ export default function ProductNationalPage() {
                 <p className="bg-creamBg py-3 shadow-lg rounded-t-lg text-start text-sm font-semibold px-4">
                   Observaciones
                 </p>
-                <ul className="flex flex-col px-4 pt-6 text-sm font-semibold">
-                  <li>
-                  {`${currentProduct.observaciones}`}
-                  </li>
-                  <p className="mt-4">{`${currentProduct.observaciones2}`}</p>
-                  <ul className="mt-2">
-                    <li>{`${currentProduct.observaciones3}`}</li>
-                  </ul>
+                <ul className="flex flex-col gap-2 px-4 pt-6 text-sm font-semibold">
+                  <li>{`${currentProduct.observaciones}`}</li>
+                  <li>{`${currentProduct.observaciones2}`}</li>
+                  <li>{`${currentProduct.observaciones3}`}</li>
                 </ul>
+              </div>
               </div>
             </div>
 
