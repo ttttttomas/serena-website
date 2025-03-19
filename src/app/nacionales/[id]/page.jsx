@@ -40,10 +40,10 @@ export default function ProductNationalPage() {
             <div className="w-full mb-10">
               <ul className="flex bg-creamBg py-4 md:gap-32 text-sm md:text-base gap-3 justify-center font-semibold px-8 text-center">
                 <a href="#detalles">Detalles</a>
-                <a href="#itinerario">Itinerario</a>
-                <a href="#incluye">Incluye</a>
-                <a href="#tarifas">Tarifas</a>
-                <a href="#observaciones">Observaciones</a>
+                {currentProduct.itinerario && <a href="#itinerario">Itinerario</a>}
+                {currentProduct.incluye && <a href="#incluye">Incluye</a>}
+                {currentProduct.tarifas && <a href="#tarifas">Tarifas</a>}
+                {currentProduct.observaciones && <a href="#observaciones">Observaciones</a>}
               </ul>
               <h2 className="text-center text-orangeMedium font-bold text-2xl tracking-wide mt-5">
                 {currentProduct.destino}

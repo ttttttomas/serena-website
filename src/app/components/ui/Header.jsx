@@ -8,16 +8,12 @@ import HeaderList from "./HeaderList";
 import HeaderMobile from "../HeaderMobile";
 
 import Menu from "./icons/Menu";
-import Link from "next/link";
-
-import { useRouter } from 'next/navigation'
-import { useContext, useState,useEffect } from 'react';
-import { productsContext } from '@/app/context/ProductsContext';
-
+import Link from "next/link"
+import { useEffect } from "react";
 
 export default function Header() {
 
-    const user = localStorage.getItem("user");
+          const user = localStorage.getItem("user");    
 
 // MD ES DESKTOP
 

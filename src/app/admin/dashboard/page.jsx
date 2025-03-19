@@ -8,13 +8,13 @@ import { useRouter } from 'next/navigation'
 import './Dashboard.css'
 
 import Link from 'next/link'
-import { useLayoutEffect } from "react";
+import { useEffect } from "react";
 
 export default function AdminDashboard() {
     const router = useRouter()
-    const user = localStorage.getItem("user");
     
-    useLayoutEffect(() => {
+    useEffect(() => {
+        const user = localStorage.getItem("user");
             if (user) {
                 router.push('/admin/dashboard')
             }else{
@@ -29,7 +29,7 @@ export default function AdminDashboard() {
     }
 
 return( <section className="">
-    {user ? (<div className='bg-creamBg background gap-3 my-10 p-12 flex flex-col items-center justify-center border mx-auto w-[500px]'>  
+    <div className='bg-creamBg background gap-3 my-10 p-12 flex flex-col items-center justify-center border mx-auto w-[500px]'>  
         <ul className="font-bold text-xl tracking-normal flex flex-col items-center justify-center gap-2">
             <Link href="/admin/dashboard/destacados" className="flex gap-3 items-center justify-center">
                 <Admin1/>
@@ -48,7 +48,7 @@ return( <section className="">
                 <p>Cerrar sesión</p>
             </Link>
         </ul>
-    </div>) : <p className="text-center my-3 font-bold">Cargando...</p>}
+    </div>
 </section> 
  )
 }
