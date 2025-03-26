@@ -13,11 +13,6 @@ import { useEffect } from "react";
 
 export default function Header() {
 
-          const user = localStorage.getItem("user");    
-
-// MD ES DESKTOP
-
-
     return (
         <>
     <header className="flex w-full md:flex-col flex-row">
@@ -44,12 +39,12 @@ export default function Header() {
                          <Instagram />
                     </Link>
                 </ul>
-                {!user ? (<Link href="/admin" className="flex items-center justify-end gap-3 cursor-pointer hover:underline">
+                <Link href="/admin" className="flex items-center justify-end gap-3 cursor-pointer hover:underline">
                     <AdminIcon text='Acceso' />
-                </Link>) : 
-                <Link href="/admin/dashboard" className="flex items-center justify-end gap-3 cursor-pointer hover:underline">
+                </Link>
+                {/* <Link href="/admin/dashboard" className="flex items-center justify-end gap-3 cursor-pointer hover:underline">
                 <AdminIcon text='Panel de sistema' />
-            </Link>}
+            </Link> */}
             </div>
         </div>
 

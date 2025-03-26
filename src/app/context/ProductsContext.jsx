@@ -32,7 +32,7 @@ export default function ProductsContextProvider ({ children }) {
     } catch (error) {
         console.error("Error al agregar producto:", error);
     }
-}
+    }
     function updateProduct (id, product) {
         try {
             axios.put(`${baseURL}/${id}`, product);
@@ -42,19 +42,6 @@ export default function ProductsContextProvider ({ children }) {
 
         }        
     }      
-
-    function login (username, password) {
-        try {
-            const response = axios.post(`${API_URL}/login`,JSON.stringify(username,password), {
-              headers: {
-                "Content-Type": "application/json",
-              },
-            })
-            return response.data
-          } catch (error) {
-            console.log("Error al iniciar sesión:", error);
-          }
-    }
 
     function contact (data) {
         try  {
@@ -130,6 +117,23 @@ export default function ProductsContextProvider ({ children }) {
 
     }
 
+    async function loginUser(username, password) {
+        const formData = new URLSearchParams();
+        formData.append("username", username);
+        formData.append("password", password);
+
+        const response = await axios.post(`${API_URL}/login`, formData, {
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            }
+        });
+        if(response.status === 200){
+            toast.success(response.data.message);
+            const token = response.data.token;
+            localStorage.setItem("token", token);
+            return true;
+        }
+    }
     return (
         <productsContext.Provider value={{ 
             products,
@@ -148,8 +152,8 @@ export default function ProductsContextProvider ({ children }) {
             updateProduct,
             updateDestacado,
             updateCartelera,
-            login,
-            contact
+            contact,
+            loginUser
             }}
         >
             {children}

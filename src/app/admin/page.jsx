@@ -1,28 +1,30 @@
 'use client'
 import { useContext, useState } from 'react';
-import './admin.css'
-import {useRouter} from 'next/navigation'
 import {useForm} from 'react-hook-form'
-import {toast} from 'sonner'
+import {toast} from "sonner"
 
+import 'dotenv/config';
+import {useRouter} from 'next/navigation'
+
+import './admin.css'
+import { productsContext } from '@app/context/ProductsContext';
 
 export default function AdminPage() {
     const {register, handleSubmit} = useForm()
+    const {loginUser} = useContext(productsContext)
     const router = useRouter() 
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
 
-    const onSubmit = handleSubmit (data => {        
-        if(data.username === "admin" && data.password === "serena11999"){
-            router.push('/admin/dashboard')
-            const userTrue = localStorage.setItem('user', 'userTrue')
-            console.log(userTrue)
-        }else{
-            toast.error('Usuario o contraseña incorrectos')
+    const onSubmit = handleSubmit (async (data) => {
+        await loginUser(data.username, data.password)
+        if (loginUser) {
+            router.push(`/admin/dashboard`);
         }
-        
-    })
-
+        if (!loginUser) {
+            toast.error('Usuario o contraseña incorrectos');
+        }
+})
     return (
         <section>
             <div className='bg-creamBg background-admin gap-3 my-10 p-12 flex flex-col items-center justify-center mx-auto w-[500px]'>  
